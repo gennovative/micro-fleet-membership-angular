@@ -1,0 +1,38 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"moduleResolution": "node",
+
+		"baseUrl": "./",
+		"outDir": "./dist/out-tsc",
+		"sourceMap": true,
+		"declaration": false,
+		"allowSyntheticDefaultImports": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"strict": true,
+		"strictNullChecks": false,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitReturns": true,
+		"noUnusedLocals": false,
+		"noUnusedParameters": false,
+		"suppressImplicitAnyIndexErrors": true,
+		"removeComments": false,
+		"typeRoots": [
+			"node_modules/@types"
+		],
+		"lib": [
+			"es2017",
+			"dom"
+		],
+		"plugins": [
+			{ "name": "tslint-language-service"}
+		],
+		"paths": {
+			"@angular/*": ["./node_modules/@angular/*"],
+			"@@core/*": ["./src/app/core/*"],
+			"@@shared/*": ["./src/app/shared/*"],
+			"@@theme/*": ["./src/app/theme/*"]
+		}
+	}
+}

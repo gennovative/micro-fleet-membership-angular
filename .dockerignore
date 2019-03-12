@@ -1,0 +1,13 @@
+.gitignore
+.vscode
+angular.origin.json
+CHANGELOG.md
+configs
+dist
+e2e
+node_modules
+README.md
+src
+tsconfig.json
+tslint.json
+yarn-error.log

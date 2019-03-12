@@ -1,0 +1,155 @@
+@import './vars';
+
+/**
+  Style for a flex item which is also a flex container
+*/
+@mixin inner-flex($order) {
+	display: flex;
+	order: $order;
+}
+
+@mixin sticky($zIndex, $top, $bottom: auto) {
+	position: fixed;
+	top: $top;
+	bottom: $bottom;
+	z-index: $zIndex;
+}
+
+@mixin transitionLeft($duration, $function: ease, $delay: 0s) {
+	transition: margin-left $duration $function $delay;
+}
+
+
+.ggm-layout {
+	display: flex;
+	min-height: 100%;
+	position: relative;
+
+	&[subfooter] {
+		.ggm-layout-sidebar {
+			height: calc(100% - #{$layout-header-height});
+		}
+	}
+
+	&[subheader] {
+		.ggm-layout-header[sticky] {
+			margin-left: $layout-sidebar-width;
+		}
+
+		.ggm-layout-sidebar {
+			height: calc(100% - #{$layout-footer-height});
+			top: 0;
+		}
+	}
+
+	&[subfooter][subheader] {
+		.ggm-layout-sidebar {
+			height: 100vh;
+		}
+	}
+
+	
+	&.ggm-sidebar--offcanvas {
+		.ggm-layout-sidebar {
+			transform: translateX($layout-sidebar-offcanvas-width - $layout-sidebar-width);
+
+			&[sticky] {
+				+ .ggm-layout-box {
+					margin-left: $layout-sidebar-offcanvas-width;
+				}
+			}
+		}
+	}
+}
+
+.ggm-layout[subheader].ggm-sidebar--offcanvas .ggm-layout-header[sticky],
+.ggm-layout[subfooter].ggm-sidebar--offcanvas .ggm-layout-footer[sticky] {
+	margin-left: $layout-sidebar-offcanvas-width;
+}
+
+.ggm-layout-sidebar {
+	display: flex;
+	flex-direction: column;
+	width: $layout-sidebar-width;
+	height: calc(100% - #{$layout-header-height} - #{$layout-footer-height});
+	overflow: hidden;
+
+	transform: translateX(0);
+	transition: transform 0.6s ease 0s;
+
+	&:hover {
+		overflow: auto;
+		transform: translateX(0) !important;
+	}
+
+	&.sidebar-start {
+		order: 0;
+
+		&[sticky] {
+			left: 0;
+		}
+	}
+
+	&.sidebar-end {
+		order: 2;
+
+		&[sticky] {
+			right: 0;
+		}
+	}
+
+	&[sticky] {
+		@include sticky(50, $layout-header-height);
+
+		+ .ggm-layout-box {
+			margin-left: $layout-sidebar-width;
+		}
+	}
+}
+
+.ggm-layout-header {
+	@include inner-flex(0);
+	height: $layout-header-height;
+
+	&[sticky] {
+		@include sticky(40, 0);
+		left: 0;
+		right: 0;
+		@include transitionLeft(0.6s);
+
+		+ .ggm-layout-box,
+		+ .ggm-layout-content {
+			margin-top: $layout-header-height;
+		}
+	}
+}
+
+.ggm-layout-box,
+.ggm-layout-content {
+	@include inner-flex(1);
+	flex: 1 1 auto;
+	position: relative;
+}
+
+.ggm-layout-box .ggm-layout-box {
+	@include transitionLeft(0.6s);
+}
+
+.ggm-layout-footer {
+	@include inner-flex(2);
+	height: $layout-footer-height;
+
+	&[sticky] {
+		@include sticky(40, auto, 0);
+		left: 0;
+		right: 0;
+		@include transitionLeft(0.6s);
+	}
+}
+
+.ggm-dir-vertical {
+	flex-direction: column;
+}
+
+
+

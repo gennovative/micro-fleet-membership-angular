@@ -1,0 +1,29 @@
+/*
+ * THIRD PARTY IMPORTS
+ */
+
+// Loading progress bar
+// @import './pace.theme';
+
+// Structural styles for layout library
+// TODO: Extract to an external library.
+// @import '~theme/layouts/components/layout';
+
+
+/*
+ * PROJECT INTERNALS
+ */
+
+// Structural styles for this project's layout.
+@import '../layouts/desktop/unresponsive.layout';
+
+// @import './primeng/primeng';
+
+// @import './primeng/layout-lightblue';
+// @import './primeng/theme-lightblue';
+
+// Color and effect styles
+@import './theme-firstidea';
+
+
+

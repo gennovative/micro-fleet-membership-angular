@@ -1,0 +1,98 @@
+<p-toast [style]="{marginTop: '50px'}"></p-toast>
+<p-toolbar styleClass="ggm-ui-toolbar sticky">
+	<button pButton label="Back" icon="ui-icon-arrow-back" [routerLink]="['/accounts/list']" routerLinkActive="router-link-active" class="ggm-button-back" class="ui-button-raised ui-button-secondary"></button>
+	<button pButton label="Save" icon="ui-icon-save" (click)="onSave()" class="button-ui-raised"></button>
+</p-toolbar>
+<p-panel header="Account Details" styleClass="ui-panel-shadow">
+	<form [formGroup]="userform" (ngSubmit)="onSave()" *ngIf="formReady">
+		<div class="ui-g ui-fluid" >
+			<div class="ui-g-12">
+				<div class="ggm-ui-g-1 ui-g-1">
+					<label for="username">Username</label>
+				</div>
+				<div class="ggm-ui-g-3 ui-g-3">
+					<input #firstfield pInputText formControlName="username"/>
+				</div>
+				<div class="ggm-ui-g-6 ui-g-6">
+					<p-message severity="error" text="Empty username"
+					*ngIf="userform.errors?.emptyUsername">
+					</p-message>
+					<p-message severity="error" text="Username too short"
+					*ngIf="userform.errors?.shortUsername">
+					</p-message>
+					<p-message severity="error" text="Username too long"
+					*ngIf="userform.errors?.longUsername">
+					</p-message>
+				</div>
+			</div>
+			<div class="ui-g-12">
+				<div class="ggm-ui-g-1 ui-g-1">
+					<label for="fullname">Full name</label>
+				</div>
+				<div class="ggm-ui-g-3 ui-g-3">
+					<input pInputText formControlName="fullname"/>
+				</div>
+				<div class="ggm-ui-g-6 ui-g-6">
+						<p-message severity="error" text="Empty full name"
+						*ngIf="userform.errors?.emptyFullname">
+						</p-message>
+						<p-message severity="error" text="Full name too short"
+						*ngIf="userform.errors?.shortFullname">
+						</p-message>
+						<p-message severity="error" text="Full name too long"
+						*ngIf="userform.errors?.longFullname">
+						</p-message>
+				</div>
+			</div>
+			<div class="ui-g-12">
+				<div class="ggm-ui-g-1 ui-g-1">
+					<label for="fullname">Password</label>
+				</div>
+				<div class="ggm-ui-g-3 ui-g-3">
+					<input type="password" pPassword formControlName="password" [feedback]="false"/>
+				</div>
+				<div class="ggm-ui-g-6 ui-g-6">
+					<p-message severity="error" text="Empty password"
+					*ngIf="userform.errors?.emptyPassword">
+					</p-message>
+					<p-message severity="error" text="Password too short"
+					*ngIf="userform.errors?.shortPassword">
+					</p-message>
+					<p-message severity="error" text="Password too long"
+					*ngIf="userform.errors?.longPassword">
+					</p-message>
+				</div>
+			</div>
+			<div class="ui-g-12">
+				<div class="ggm-ui-g-1 ui-g-1">
+					<label for="fullname">Re-enter password</label>
+				</div>
+				<div class="ggm-ui-g-3 ui-g-3">
+					<input type="password" pPassword formControlName="confirmPassword" [feedback]="false"/>
+				</div>
+				<div class="ggm-ui-g-6 ui-g-6">
+					<p-message severity="error" text="Empty password confirmation"
+					*ngIf="userform.errors?.emptyConfirmPass">
+					</p-message>
+					<p-message severity="error" text="Passwords do not match"
+					*ngIf="userform.errors?.invalidConfirmPass">
+					</p-message>
+				</div>
+			</div>
+			<div class="ui-g-12">
+				<div class="ggm-ui-g-1 ui-g-1">
+					<label for="role">Role </label>
+				</div>
+				<div class="ggm-ui-g-3 ui-g-3">
+					<p-dropdown formControlName="role" filter="true" filterBy="label" [options]="roleItems" [optionLabel]="name" placeholder="Select a role"></p-dropdown>
+				</div>
+				<div class="ggm-ui-g-6 ui-g-6">
+					<p-message severity="error" text="Role is required"
+						*ngIf="!userform.controls['role'].valid && userform.controls['role'].dirty">
+					</p-message>
+				</div>
+			</div>
+			<button type="submit" style="display: none"></button>
+		</div>
+	</form>
+</p-panel>

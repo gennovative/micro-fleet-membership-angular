@@ -1,0 +1,59 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
+import {
+	SwitcherComponent,
+} from './components';
+import { CapitalizePipe, PluralPipe, RoundPipe, TimingPipe } from './pipes';
+
+
+const COMPONENTS = [
+	SwitcherComponent,
+];
+
+const MATERIAL_MODULES = [
+	MatButtonModule,
+	MatCheckboxModule,
+	MatDialogModule,
+	MatTableModule,
+	MatToolbarModule,
+	MatTooltipModule,
+	MatPaginatorModule,
+];
+
+const PIPES = [
+	CapitalizePipe,
+	PluralPipe,
+	RoundPipe,
+	TimingPipe,
+];
+
+
+/**
+ * Provides components, pipes and other template utils.
+ * SharedModule should be imported directly by the module using its features.
+ */
+@NgModule({
+	imports: [
+		CommonModule,
+		...MATERIAL_MODULES,
+	],
+	exports: [
+		...COMPONENTS,
+		...PIPES,
+		...MATERIAL_MODULES,
+	],
+	declarations: [
+		...COMPONENTS,
+		...PIPES,
+	],
+})
+export class SharedModule {
+}

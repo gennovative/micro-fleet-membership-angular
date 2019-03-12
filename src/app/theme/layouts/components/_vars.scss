@@ -1,0 +1,41 @@
+$base-font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+$base-font-size: 10px;
+$layout-header-height: 56px;
+$layout-footer-height: 40px;
+$layout-sidebar-width: 240px;
+$layout-sidebar-offcanvas-width: 60px;
+$layout-content-margin: 10px;
+$theme-bgcolor: hsl(205, 97%, 45%);
+$theme-bgcolor-darken: darken(hsl(205, 97%, 45%), 15);
+$menuitem-text-color: hsl(0, 0%, 100%);
+$menuitem-text-color-highlight: hsl(204, 79%, 52%);
+
+@mixin elevation-z1() {
+	box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
+		0 1px 1px 0 rgba(0, 0, 0, 0.14),
+		0 1px 3px 0 rgba(0, 0, 0, 0.12);
+}
+
+@mixin elevation-z2() {
+	box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+		0 2px 2px 0 rgba(0, 0, 0, 0.14),
+		0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+@mixin elevation-z3() {
+	box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.2),
+		0 3px 4px 0 rgba(0, 0, 0, 0.14),
+		0 1px 8px 0 rgba(0, 0, 0, 0.12);
+}
+
+@mixin elevation-z4() {
+	box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
+		0 4px 5px 0 rgba(0, 0, 0, 0.14),
+		0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+@mixin elevation-z5() {
+	box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+		0 5px 8px 0 rgba(0, 0, 0, 0.14),
+		0 1px 14px 0 rgba(0, 0, 0, 0.12);
+}

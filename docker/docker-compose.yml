@@ -1,0 +1,23 @@
+version: '3.6'
+
+networks:
+  webnet:
+    external: true
+
+services:
+  web:
+    image: "gennovative/jpworld-admin-web:latest"
+    ports:
+      - "80:80"
+    networks:
+      - webnet
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.gnv.node.web==1
+      labels: 
+        traefik.enable: "true"
+        traefik.frontend.rule: "Host:jpworld.firstidea.vn"
+        traefik.port: 80
+        traefik.docker.network: "webnet"

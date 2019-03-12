@@ -1,0 +1,41 @@
+<p-toast [style]="{marginTop: '110px'}"></p-toast>
+<p-toolbar styleClass="ggm-ui-toolbar">
+	<div class="ui-toolbar-group-left row">
+		<div class="column">
+			<p>From</p>
+		</div>
+		<div class="column">
+			<ggm-calendar #dateFrom class="ggm-report-calendar" (onSelect)="onDateFromSelect($event)"></ggm-calendar>
+		</div>
+		<div class="column">
+			<p>To</p>
+		</div>
+		<div class="column">
+			<ggm-calendar #dateTo class="ggm-report-calendar" (onSelect)="onDateToSelect($event)"></ggm-calendar>
+		</div>
+		<div class="row" [style.visibility]="timeUnitsVisibility">
+			<div class="column">
+				<p>Time units:</p>
+			</div>
+			<div class="column">
+				<p-selectButton [options]="_timeUnits" (onChange)="onTimeUnitChange($event)" [(ngModel)]="selectedTimeUnit"></p-selectButton>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui-toolbar-group-right row" [style.visibility]="chartTypesVisibility">
+		<div class="column" *ngIf="chartTypesForSelectButton.length > 1">
+			<p>Change chart types:</p>
+		</div>
+		<div class="column">
+			<p-selectButton [options]="chartTypesForSelectButton" (onOptionClick)="onChartTypeClick($event)" [ngModel]="_currentChartType"></p-selectButton>
+		</div>
+	</div>
+</p-toolbar>
+<p-card styleClass="card card-w-title">
+	<p-header>
+		<h1>{{reportName}} Report ({{unitName}})</h1>
+	</p-header>
+
+	<p-chart #chart [type]="_currentChartType" [data]="data" (onDataSelect)="selectData($event)"></p-chart>
+</p-card>

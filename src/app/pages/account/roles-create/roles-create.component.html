@@ -1,0 +1,40 @@
+<p-toast [style]="{marginTop: '50px'}"></p-toast>
+<p-toolbar styleClass="ggm-ui-toolbar sticky">
+	<button pButton type="button" label=" Back" icon="ui-icon-arrow-back" [routerLink]="['/accounts/roles/list']" routerLinkActive="router-link-active" class="ui-button-raised ui-button-secondary"></button>
+	<button pButton label=" Create" icon="ui-icon-save" (click)="createRole()" [style]="{'margin-left': '15px'}" class="ui-button-raised"></button>
+	<p-checkbox [(ngModel)]="shouldCreateAnother" binary="true" label="Create another" [style]="{'margin-left': '15px'}"></p-checkbox>
+</p-toolbar>
+<p-panel header="Create Role" styleClass="ui-panel-shadow">
+	<div class="ui-g ui-fluid">
+		<div class="ui-g-7">
+			<p-messages [(value)]="msgs"></p-messages>
+		</div>
+	</div>
+	<form [formGroup]="userform" (ngSubmit)="createRole()">
+		<div class="ui-g ui-fluid">
+			<div class="ui-g-12">
+				<div class="ggm-ui-g-1 ui-g-1">
+					<label for="name">Name<span style="color: red;">*</span></label>
+				</div>
+				<div class="ggm-ui-g-3 ui-g-3">
+					<input pInputText formControlName="name" #firstfield/>
+				</div>
+				<div class="ggm-ui-g-6 ui-g-6">
+					<p-message severity="error" text="Empty name"
+					*ngIf="userform.errors?.emptyName">
+					</p-message>
+					<p-message severity="error" text="Name too short"
+					*ngIf="userform.errors?.shortName">
+					</p-message>
+					<p-message severity="error" text="Name too long"
+					*ngIf="userform.errors?.longName">
+					</p-message>
+				</div>
+			</div>
+			<div class="ggm-ui-g-1 ui-g-1">
+				<label for="role"><span style="color: red;">*</span> <strong>Required info</strong></label>
+			</div>
+			<button type="submit" style="display: none"></button>
+		</div>
+	</form>
+</p-panel>

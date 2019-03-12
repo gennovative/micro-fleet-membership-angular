@@ -1,0 +1,70 @@
+.ggm-stack-menu,
+.ggm-stack-submenu {
+	::ng-deep {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+
+		::ng-deep {
+			a {
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+.ggm-stack-submenu {
+	overflow: hidden;
+	transition: height 0.5s ease 0s;
+}
+
+.ggm-menu-item__content {
+	position: relative;
+	text-decoration: none;
+	padding: 10px;
+	display: block;
+	box-sizing: border-box;
+}
+
+.ggm-menu-item--active {
+}
+
+.ggm-menu-item__content__caret,
+.ggm-menu-item__content__icon {
+	float: right;
+	font-size: 1.3em;
+	margin-left: 5px;
+}
+
+.ggm-menu-item__content__caret {
+	margin-right: 5px;
+	transition: transform 0.3s ease 0s;
+	transform: rotate(0);
+}
+
+.ggm-menu-item:not(.ggm-menu-item--expanded) {
+	::ng-deep {
+		.ggm-stack-submenu {
+			height: 0 !important;
+		}
+	}
+}
+
+.ggm-menu-item--expanded {
+	::ng-deep {
+		.ggm-menu-item__content__caret {
+			transform: rotate(180deg);
+		}
+	}
+}
+
+.ggm-stack-submenu .ggm-menu-item__content {
+	::ng-deep {
+		padding-left: 20px;
+
+		.ggm-stack-submenu .ggm-menu-item__content {
+			padding-left: 40px;
+		}
+	}
+}

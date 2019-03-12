@@ -1,0 +1,89 @@
+<ng-template #_itemUrlTpl let-item>
+	<a [attr.href]="item.url" [attr.target]="item.urlTarget" [attr.title]="item.title"
+		class="ggm-menu-item__content"
+	>
+		<ng-container
+			*ngTemplateOutlet="itemContentTpl ? itemContentTpl : defaultItemContentTpl;context:{$implicit:item}">
+		</ng-container>
+	</a>
+</ng-template>
+
+<ng-template #_itemRouterTpl let-item>
+	<a [routerLink]="item.routerLink"
+		[routerLinkActive]="'ggm-menu-item--active'"
+		[routerLinkActiveOptions]="item.routerLinkActiveOptions || {exact:false}"
+		class="ggm-menu-item__content">
+		<ng-container
+			*ngTemplateOutlet="itemContentTpl ? itemContentTpl : defaultItemContentTpl; context: {$implicit:item}">
+		</ng-container>
+	</a>
+</ng-template>
+
+<ng-template #defaultItemTpl let-item>
+	<!-- <ng-container 
+		*ngTemplateOutlet="item.routerLink ? _itemRouterTpl : _itemUrlTpl; context: {$implicit:item}">
+	</ng-container> -->
+	<li class="ggm-menu-item"
+				routerLinkActive="ggm-menu-item--active"
+				[routerLinkActiveOptions]="item.routerLinkActiveOptions || {exact:false}"
+				[ngClass]="{'ggm-menu-item--expanded': item.expanded, 'ggm-menu-haschild': item.items?.length > 0}"
+			>
+		<a *ngIf="!item.routerLink && !item.url"
+			[attr.href]="'javascript:void(0)' | safeUrl"
+			class="ggm-menu-item__content"
+		>
+			<ng-container
+				*ngTemplateOutlet="itemContentTpl ? itemContentTpl : defaultItemContentTpl;context:{$implicit:item}">
+			</ng-container>
+		</a>
+
+		<a *ngIf="!item.routerLink && item.url"
+			[attr.href]="item.url" [attr.target]="item.urlTarget" [attr.title]="item.title"
+			class="ggm-menu-item__content"
+		>
+			<ng-container
+				*ngTemplateOutlet="itemContentTpl ? itemContentTpl : defaultItemContentTpl;context:{$implicit:item}">
+			</ng-container>
+		</a>
+
+		<a *ngIf="item.routerLink && !item.url"
+			[routerLink]="item.routerLink"
+			class="ggm-menu-item__content"
+		>
+			<ng-container
+				*ngTemplateOutlet="itemContentTpl ? itemContentTpl : defaultItemContentTpl;context:{$implicit:item}">
+			</ng-container>
+		</a>
+		
+		<ul class="ggm-stack-submenu" *ngIf="item.items?.length > 0" [style.height.px]="item.items?.length * 45">
+			<ng-container *ngFor="let subitem of item.items; trackBy: trackBy || trackItem">
+				<ng-container *ngIf="subitem.visible !== false">
+					<ng-container
+						*ngTemplateOutlet="itemTpl ? itemTpl : defaultItemTpl; context: {$implicit:subitem}">
+					</ng-container>
+				</ng-container>
+			</ng-container>
+		</ul>
+	</li>
+	<!-- <p style="border: 1px solid red; margin: 5px">{{item}}</p> -->
+	<!-- <ng-container 
+		*ngTemplateOutlet="_itemRouterTpl;context:{item:item}">
+	</ng-container> -->
+</ng-template>
+
+<ng-template #defaultItemContentTpl let-item>
+	<i [ngClass]="[item.icon || '', 'ggm-menu-item__content__icon']"></i>
+	<i *ngIf="item.items?.length > 0" class="ggm-menu-item__content__caret fas fa-angle-down"></i>
+	<span class="ggm-menu-item__content__text">{{item.label}}</span>
+</ng-template>
+
+
+<ul class="ggm-stack-menu" (click)="delegate($event, '.ggm-menu-item', toggleSubmenu)">
+	<ng-container *ngFor="let item of items; trackBy: trackBy || trackItem">
+		<ng-container *ngIf="item.visible !== false">
+			<ng-container
+				*ngTemplateOutlet="itemTpl ? itemTpl : defaultItemTpl; context: {$implicit:item}">
+			</ng-container>
+		</ng-container>
+	</ng-container>
+</ul>

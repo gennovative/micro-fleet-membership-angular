@@ -1,0 +1,34 @@
+:host {
+	::ng-deep {
+		.ui-panel {
+			height: 480px;
+			width: 550px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin: -275px -240px;
+		}
+
+		.ui-panel-content {
+			padding: 50px 100px !important;
+			text-align: center;
+		}
+
+		.ui-panel-titlebar {
+			background-color: rgb(126, 227, 255);
+			border-bottom: none !important;
+			padding: 8px 14px !important;
+			text-align: center;
+		}
+
+		.ui-button {
+			background-color: rgb(126, 227, 255);
+			width: 100%;
+		}
+
+		.ggm-logo-login {
+			vertical-align: middle;
+			width: 50px;
+		}
+	}
+}

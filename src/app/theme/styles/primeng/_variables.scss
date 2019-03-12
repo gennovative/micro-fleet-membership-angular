@@ -1,0 +1,55 @@
+$fontFamily: 'Open Sans', 'Helvetica Neue', sans-serif;
+$fontSize: 1em;
+$borderRadius: 3px;
+$disabledOpacity: 0.35;
+
+// Header
+$headerBorderWidth: 2px;
+$headerBorderColor: hsl(314, 70%, 80%);
+$headerBgColor: hsl(220, 20%, 97%);
+$headerTextColor: hsl(210, 7%, 11%);
+$headerFontWeight: normal;
+$headerIconTextColor: hsl(210, 7%, 11%);
+
+//Content
+$contentBorderWidth: 2px;
+$contentBorderColor: hsl(0, 100%, 84%);
+$contentBgColor: hsl(0, 0%, 100%);
+$contentTextColor: hsl(0, 0%, 13%);
+
+//Default State
+$stateDefaultBorderWidth: 1px;
+$stateDefaultBorderColor: hsl(0, 0%, 84%);
+$stateDefaultBgColor: hsl(0, 0%, 100%);
+$stateDefaultTextColor: hsl(0, 0%, 33%);
+
+//Active State
+$stateActiveBorderColor: hsl(0, 0%, 75%);
+$stateActiveBgColor: hsl(0, 0%, 84%);
+$stateActiveTextColor: hsl(0, 0%, 13%);
+
+//Highlight State
+$stateHighlightBorderColor: hsl(203, 75%, 32%);
+$stateHighlightBgColor: hsl(203, 74%, 36%);
+$stateHighlightTextColor: hsl(0, 0%, 100%);
+
+//Focus State
+$stateFocusBorderColor: hsl(0, 0%, 75%);
+$stateFocusBgColor: hsl(0, 0%, 93%);
+$stateFocusTextColor: hsl(0, 0%, 13%);
+
+//Error State
+$stateErrorBorderColor: hsl(4, 90%, 58%);
+$stateErrorBgColor: hsl(4, 90%, 63%);
+$stateErrorTextColor: hsl(0, 91%, 42%);
+
+//Hover State
+$stateHoverBorderColor: hsl(0, 0%, 75%);
+$stateHoverBgColor: hsl(0, 0%, 93%);
+$stateHoverTextColor: hsl(0, 0%, 13%);
+
+//Forms
+$inputBgColor: hsl(0, 0%, 100%);
+$inputTextColor: hsl(0, 0%, 13%);
+$invalidInputBorderColor: hsl(0, 100%, 50%);
+$inputGroupTextColor: hsl(0, 0%, 100%);

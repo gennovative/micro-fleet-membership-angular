@@ -1,0 +1,37 @@
+<div class="ui-g" style="margin-top: 86px; height: 100%;">
+	<p-panel>
+		<p-header>
+			<img class="ggm-logo-login" src="../../../../assets/icons/giga-mall-logo-50x50.png">
+		</p-header>
+		<div class="ui-g">
+			<div class="ui-g-12">
+				<h1>Log in to Giga Mall Back Office</h1>
+			</div>
+			<div class="ui-g-12 ggm-error-text" *ngIf="backendErrorExists" style="text-align: center;">
+				<p>An error has occured. Please try again!</p>
+			</div>
+			<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+				<div class="ui-g-12">
+					<div class="ui-inputgroup" style="margin-top: 40px;">
+							<span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+							<input type="text" formControlName="username" pInputText placeholder="Username" style="width:100%;" (keyup)="onKeyUp()" #firstfield>
+					</div>
+					<div class="ggm-error-text" *ngIf="username.invalid">{{_usernameMsg}}</div>
+				</div>
+				<div class="ui-g-12">
+					<div class="ui-inputgroup" style="margin-top: 20px;">
+						<span class="ui-inputgroup-addon"><i class="fa fa-key"></i></span>
+						<input pPassword type="password" formControlName="password" [feedback]="false" placeholder="Password" (keyup)="onKeyUp()" style="width:100%;"/>
+					</div>
+					<div class="ggm-error-text" *ngIf="password.invalid">{{_passwordMsg}}</div>
+				</div>
+				<div class="ui-g-12">
+					<p-button type="submit" icon="pi pi-lock" label="Log In" style="margin-top: 15px; width: 100%"></p-button>
+				</div>
+			</form>
+			<div style="margin-top: 25px;">
+				<p-checkbox label="Remember me" binary="true" [(ngModel)]="rememberSession"></p-checkbox>
+			</div>
+		</div>
+	</p-panel>
+</div>

@@ -1,0 +1,74 @@
+<p-panel [showHeader]="false">
+	<p-toolbar>
+		<div class="ui-toolbar-group-left">
+			<button pButton label="Add" icon="ui-icon-add" [routerLink]="['../create']" class="ui-button-raised"></button>
+			<p-overlayPanel [style]="{'margin-left': '94px', 'margin-top': '-47px', 'min-height': '33px'}" appendTo="body" #confirmDelete>
+				<form>
+					<div style="text-align: center;"><h4>Are you sure?</h4></div>
+					<div class="ui-g ui-fluid" style="margin-top: 4px;">
+						<span><button pButton type="button" label="Cancel" class="ui-button-secondary" (click)="confirmDelete.hide()"></button></span>
+						<span><button pButton type="button" label="Confirm" class="ui-button-danger" (click)="delete()" style="margin-left: 10px;"></button></span>
+					</div>
+				</form>
+			</p-overlayPanel>
+			<button *ngIf="showDeleteBtn" pButton label="Delete" icon="ui-icon-delete-forever" (click)="confirmDelete.toggle($event)" class="ui-button-raised ui-button-danger"></button>
+		</div>
+
+		<div class="ui-toolbar-group-right">
+			<input type="search" pInputText size="40" placeholder="Keyword" height="30"
+				(input)="tableContent.filterGlobal($event.target.value, 'contains')">
+			<p-button icon="pi pi-search"></p-button>
+		</div>
+	</p-toolbar>
+	<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" width="425"></p-confirmDialog>
+	<p-table
+		[resizableColumns]="true"
+		[columns]="cols"
+		[value]="dataTable"
+		[paginator]="true"
+		[rows]="10"
+		(onLazyLoad)="loadDataLazily($event)" [lazy]="true"
+		[(selection)]="selectedItems"
+		(onRowSelect)="toggleHandler($event)"
+		(onRowUnselect)="toggleHandler($event)"
+		(onHeaderCheckboxToggle)="toggleHandler($event)"
+		selectionMode="multiple"
+		[loading]="loading" loadingIcon="fas fa-spinner"
+		[totalRecords]="totalRecords"
+		[rowsPerPageOptions]="[10,20,30,40]"
+		#tableContent>
+
+		<ng-template pTemplate="header" let-columns>
+			<tr>
+				<th style="width: 3em">
+					<p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+				</th>
+				<th *ngFor="let col of columns" [ngStyle]="{'display': col.display}" pResizableColumn [pSortableColumn]="col.field">
+					{{col.header | uppercase}}
+					<p-sortIcon [field]="col.field"></p-sortIcon>
+				</th>
+				<th pResizableColumn>
+					OPERATIONS
+				</th>
+			</tr>
+		</ng-template>
+
+		<ng-template pTemplate="body" let-rowData let-columns="columns">
+			<tr>
+				<td style="text-align: center;">
+					<p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+				</td>
+				
+				<td *ngFor="let col of columns" [ngStyle]="{'display': col.display}" class="ui-resizable-column">
+					<a *ngIf="col.hasLink" routerLink="../details/{{rowData[idField]}}" [style]="{'color': 'blue'}">{{rowData[col.field]}}</a>
+					<p *ngIf="!col.hasLink">{{rowData[col.field]}}</p>
+				</td>
+				<td style="text-align: center">
+					<span>
+						<p-button styleClass="ggm-button-hover" icon="ui-icon-delete-forever" pTooltip="Delete" tooltipPosition="bottom" (click)="confirmDeleteSingle(rowData[idField])"></p-button>
+					</span>
+				</td>
+			</tr>
+		</ng-template>
+	</p-table>
+</p-panel>

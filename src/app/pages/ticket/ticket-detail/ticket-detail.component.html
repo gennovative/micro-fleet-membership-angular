@@ -1,0 +1,85 @@
+<p-toast position="top-right" class="ui-toast-message"></p-toast>
+<p-toolbar styleClass="ggm-ui-toolbar sticky">
+	<p-button label="Back" icon="ui-icon-arrow-back" (onClick)="location.back()" class="ggm-button-back"></p-button>
+	<p-button label="Save" icon="ui-icon-save" (onClick)="onSave(userform.value)"></p-button>
+</p-toolbar>
+<p-card header="Ticket Detail" styleClass="card card-w-title">
+	<p-header>
+		<h1>Ticket Detail</h1>
+	</p-header>
+	<form [formGroup]="userform" (ngSubmit)="onSave(userform.value)">
+		<div class="ui-g ggm-ui-g ui-fluid ggm-ui-fluid">
+			<div class="ggm-ui-g-12 ui-g-12">
+				<div class="ggm-ui-g-1 ui-g-1">
+					<label for="name">Name</label>
+				</div>
+				<div class="ggm-ui-g-3 ui-g-3">
+					<input pInputText formControlName="name" class="ggm-input-detail-ticket" />
+				</div>
+				<div class="ggm-ui-g-6 ui-g-6">
+					<p-message severity="error" text="Name is required"
+					*ngIf="!userform.controls['name'].valid && userform.controls['name'].dirty">
+					</p-message>
+				</div>
+			</div>
+			<!-- ---------------------------------------------------------------- -->
+			<div class="ggm-ui-g-12 ui-g-12">
+				<div class="ggm-ui-g-1 ui-g-1">
+					<label for="price">Price</label>
+				</div>
+				<div class="ggm-ui-g-3 ui-g-3">
+					<div class="ui-inputgroup">
+						<input pInputText formControlName="price" placeholder="Input the ticket price" class="ggm-input-create-ticket" pKeyFilter="int"
+							value="{{transferFormatNumber() | number}}" />
+						<span class="ui-inputgroup-addon">VND</span>
+					</div>
+				</div>
+				<div class="ggm-ui-g-6 ui-g-6">
+					<p-message severity="error" text="Price is required"
+					*ngIf="!userform.controls['price'].valid && userform.controls['price'].dirty">
+					</p-message>
+				</div>
+			</div>
+			<!-- ---------------------------------------------------------------- -->
+			<div class="ggm-ui-g-12 ui-g-12">
+				<div class="ggm-ui-g-1 ui-g-1">
+					<label for="type">Descriptions</label>
+				</div>
+				<div class="ggm-ui-g-3 ui-g-3">
+					<textarea formControlName="description" rows="5" cols="60"
+						pInputTextarea autoResize="autoResize" placeholder="Descriptions"></textarea>
+				</div>
+				<div class="ggm-ui-g-6 ui-g-6">
+				</div>
+			</div>
+			<!-- ---------------------------------------------------------------- -->
+			<div class="ggm-ui-g-12 ui-g-12">
+				<div class="ggm-ui-g-1 ui-g-1">
+					<label for="codePrefix">Code prefix</label>
+				</div>
+				<div class="ggm-ui-g-3 ui-g-3">
+					<input pInputText formControlName="codePrefix" />
+				</div>
+				<div class="ggm-ui-g-6 ui-g-6">
+					<p-message severity="error" text="Name is required"
+					*ngIf="!userform.controls['codePrefix'].valid && userform.controls['codePrefix'].dirty">
+					</p-message>
+				</div>
+			</div>
+			<!-- ---------------------------------------------------------------- -->
+			<div class="ggm-ui-g-12 ui-g-12">
+				<div class="ggm-ui-g-1 ui-g-1">
+					<label for="isEnabled">Enabled</label>
+				</div>
+				<div class="ggm-ui-g-3 ui-g-3">
+					<p-checkbox [formControl]="userform.controls['isEnabled']" binary="true"></p-checkbox>
+				</div>
+				<div class="ggm-ui-g-6 ui-g-6">
+				</div>
+			</div>
+			<button type="submit" style="display: none" [disabled]="!userform.valid"></button>
+			<!-- ---------------------------------------------------------------- -->
+			<button type="submit" style="display: none"></button>
+		</div>
+	</form>
+</p-card>

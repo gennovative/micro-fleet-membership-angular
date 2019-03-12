@@ -1,0 +1,37 @@
+:host {
+	::ng-deep {
+		.ui-panel .ui-panel-content {
+			border: 0;
+		}
+
+		.ui-overlaypanel {
+			margin-left: 94px;
+		}
+
+		.ui-toolbar {
+			margin-bottom: 0.3em;
+			padding: 0.371em 0.25em;
+		}
+
+		.ui-button {
+			margin: 0 0.25em;
+		}
+
+		.ui-paginator .ui-dropdown {
+			margin-left: 0;
+			.ui-dropdown-trigger {
+				border: 0;
+			}
+		}
+
+		.ui-paginator .ui-paginator-page,
+		.ui-paginator .ui-paginator-pages,
+		.ui-paginator .ui-paginator-next,
+		.ui-paginator .ui-paginator-last,
+		.ui-paginator .ui-paginator-first,
+		.ui-paginator .ui-paginator-prev,
+		.ui-paginator .ui-paginator-current {
+			background-color: #f4f4f4;
+		}
+	}
+}

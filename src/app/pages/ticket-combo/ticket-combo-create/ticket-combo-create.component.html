@@ -1,0 +1,135 @@
+<p-toast position="top-right" class="ui-toast-message"></p-toast>
+<p-toolbar styleClass="ggm-ui-toolbar sticky">
+	<p-button label="Back" icon="ui-icon-arrow-back" (onClick)="location.back()" class="ggm-button-back"></p-button>
+	<p-button label="Create" icon="ui-icon-save" (onClick)="createCombo(userform.value)" [disabled]="!userform.valid"></p-button>
+</p-toolbar>
+<p-card header="Ticket Combo Create" styleClass="card card-w-title">
+	<p-header>
+		<h1>Ticket Combo Create</h1>
+	</p-header>
+	<form [formGroup]="userform" (ngSubmit)="createCombo(userform.value)">
+		<div class="row">
+			<div class="column">
+				<div class="ui-g ggm-ui-g ui-fluid ggm-ui-fluid">
+					<div class="ggm-ui-g-12 ui-g-12">
+						<div class="ggm-ui-g-1 ui-g-1">
+							<label for="name">Name</label>
+						</div>
+						<div class="ggm-ui-g-3 ui-g-3">
+							<input pInputText formControlName="name" placeholder="Input the ticket name" class="ggm-input-width" #firstField />
+						</div>
+						<div class="ggm-ui-g-6 ui-g-6">
+							<p-message severity="error" text="Name is required"
+							*ngIf="!userform.controls['name'].valid && userform.controls['name'].dirty">
+							</p-message>
+						</div>
+					</div>
+					<!-- ---------------------------------------------------------------- -->
+					<div class="ggm-ui-g-12 ui-g-12">
+						<div class="ggm-ui-g-1 ui-g-1">
+							<label for="price">Price</label>
+						</div>
+						<div class="ggm-ui-g-3 ui-g-3">
+							<div class="ui-inputgroup">
+								<input pInputText formControlName="price" placeholder="Input the ticket price" pKeyFilter="int" class="ggm-input-width"
+									value="{{transferFormatNumber() | number}}" />
+								<span class="ui-inputgroup-addon">VND</span>
+							</div>
+						</div>
+						<div class="ggm-ui-g-6 ui-g-6">
+							<p-message severity="error" text="Price is required"
+							*ngIf="!userform.controls['price'].valid && userform.controls['price'].dirty">
+							</p-message>
+						</div>
+					</div>
+					<!-- ---------------------------------------------------------------- -->
+					<div class="ggm-ui-g-12 ui-g-12">
+						<div class="ggm-ui-g-1 ui-g-1">
+							<label for="type">Descriptions</label>
+						</div>
+						<div class="ggm-ui-g-3 ui-g-3">
+							<textarea formControlName="descriptions" rows="5" cols="60" pInputTextarea 
+								autoResize="autoResize" placeholder="Descriptions"></textarea>
+						</div>
+						<div class="ggm-ui-g-6 ui-g-6">
+						</div>
+					</div>
+					<!-- ---------------------------------------------------------------- -->
+					<div class="ggm-ui-g-12 ui-g-12">
+						<div class="ggm-ui-g-1 ui-g-1">
+							<label for="codePrefix">Code prefix</label>
+						</div>
+						<div class="ggm-ui-g-3 ui-g-3">
+							<input pInputText formControlName="codePrefix" />
+						</div>
+						<div class="ggm-ui-g-6 ui-g-6">
+							<p-message severity="error" text="Name is required"
+							*ngIf="!userform.controls['codePrefix'].valid && userform.controls['codePrefix'].dirty">
+							</p-message>
+						</div>
+					</div>
+					<!-- ---------------------------------------------------------------- -->
+					<div class="ggm-ui-g-12 ui-g-12">
+						<div class="ggm-ui-g-1 ui-g-1">
+							<label for="date">Valid</label>
+						</div>
+						<div class="ggm-ui-g-3 ui-g-3 ggm-calendar">
+							<div class="row">
+								<div class="column">
+									<p>from</p>
+								</div>
+								<div class="column">
+									<p-calendar formControlName="validFrom" showTime="true" hourFormat="24" class=""></p-calendar>
+								</div>
+								<div class="column">
+									<p>to</p>
+								</div>
+								<div class="column">
+									<p-calendar formControlName="validTo" showTime="true" hourFormat="24" class=""></p-calendar>
+								</div>
+							</div>
+						</div>
+						<div class="ggm-ui-g-6 ui-g-6">
+							<!-- <p-message severity="error" text="Ticket is required"
+							*ngIf="!userform.controls['validFrom'].valid && userform.controls['validFrom'].dirty && !userform.controls['validTo'].valid && userform.controls['validTo'].dirty">
+							</p-message> -->
+						</div>
+					</div>
+					<!-- ---------------------------------------------------------------- -->
+					<div class="ggm-ui-g-12 ui-g-12">
+						<div class="ggm-ui-g-1 ui-g-1">
+							<label for="type">Enabled</label>
+						</div>
+						<div class="ggm-ui-g-3 ui-g-3">
+							<p-checkbox [formControl]="userform.controls['isEnabled']" binary="true"></p-checkbox>
+						</div>
+						<div class="ggm-ui-g-6 ui-g-6">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<p-pickList id="ticketPL" #pickList sourceHeader="Tickets" targetHeader="Tickets of Combo" (onTargetSelect)="onTargetSelect($event)">
+
+					<ng-template let-ticketType pTemplate="item">
+						<div *ngIf="ticketType.quantity" class="row ggm-rowItemTarget">
+							<div class="column ggm-itemTargetName">{{ticketType.name}}</div>
+							<div class="column ggm-inputSpinner">
+								<p-button icon="pi pi-minus" class="ggm-buttonSpinner" (onClick)="descTicketNum()" type="button"></p-button>
+							</div>
+							<div class="column ggm-inputSpinner">
+								<p>x{{ticketType.quantity}}</p>
+							</div>
+							<div class="column ggm-inputSpinner">
+								<p-button icon="ui-icon-add" class="ggm-buttonSpinner" (onClick)="ascTicketNum()" type="button"></p-button>
+							</div>
+						</div>
+						<div *ngIf="!ticketType.quantity">{{ticketType.name}}</div>
+					</ng-template>
+
+				</p-pickList>
+			</div>
+		</div>
+		<button type="submit" style="display: none" [disabled]="!userform.valid"></button>
+	</form>
+</p-card>
