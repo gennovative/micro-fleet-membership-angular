@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PageComponent } from './page-desktop.component';
+// For building Desktop layout
+// import { DesktopPageComponent } from './page-desktop.component';
+
+// For building Mobile layout
+import { MobilePageComponent } from './page-mobile.component';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from '@@shared/guards/auth.guard';
 // import { EventPageModule } from './event/event-page.module';
@@ -9,7 +14,11 @@ import { AuthGuard } from '@@shared/guards/auth.guard';
 
 const routes: Routes = [{
 	path: '',
-	component: PageComponent,
+	// For building Desktop layout
+	// component: DesktopPageComponent,
+
+	// For building Mobile layout
+	component: MobilePageComponent,
 	children: [
 		{
 			path: 'accounts',

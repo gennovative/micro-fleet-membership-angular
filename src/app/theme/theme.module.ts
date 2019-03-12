@@ -12,6 +12,7 @@ import {
 	SidebarComponent,
 	GgmStackMenuComponent,
 	DesktopUnresponsiveLayoutComponent,
+	MobileLayoutComponent,
 	GgmLayoutComponent,
 	GgmLayoutSidebarComponent,
 	GgmLayoutContentComponent,
@@ -31,6 +32,7 @@ const COMPONENTS = [
 	GgmStackMenuComponent,
 
 	DesktopUnresponsiveLayoutComponent,
+	MobileLayoutComponent,
 	GgmLayoutComponent,
 	GgmLayoutSidebarComponent,
 	GgmLayoutContentComponent,

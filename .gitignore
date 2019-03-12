@@ -42,3 +42,4 @@ Thumbs.db
 
 # .lock
 yarn.lock
+/build

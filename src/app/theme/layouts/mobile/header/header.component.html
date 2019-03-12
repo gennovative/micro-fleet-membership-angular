@@ -1,0 +1,23 @@
+<p-toolbar>
+	<div class="ui-toolbar-group-left">
+		<button pButton type="button" icon="fas fa-lg fa-bars" 
+			class="header-action header-item"
+			id="btnToggleSidebar"
+			(click)="toggleSidebar()"></button>
+
+		<span id="headerLogo" class="header-item">Event Checkin</span>
+	</div>
+
+	<div class="ui-toolbar-group-right">
+		<button pButton type="button" icon="far fa-lg fa-envelope"
+			class="header-action header-item"
+			(click)="toggleSidebar()"></button>
+		<button pButton type="button" icon="far fa-lg fa-bell"
+			class="header-action header-item"
+			(click)="toggleSidebar()"></button>
+		<p-menu #menu [popup]="true" [model]="userMenu" appendTo="body"></p-menu>
+		<button pButton type="button" icon="fas fa-lg fa-cog"
+			class="header-action header-item"
+			(click)="menu.toggle($event)"></button>
+	</div>
+</p-toolbar>

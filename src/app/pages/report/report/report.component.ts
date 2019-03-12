@@ -7,16 +7,6 @@ import { DataChart, DataChartType, TIME_UNITS, CHART_TYPES, ChartTypeSelectButto
 import { TitleCasePipe } from '@angular/common';
 import { Calendar } from 'primeng/calendar';
 
-/*
-1. Chart xem thống kê về tiền:
-	- Trong 1 khoảng thời gian, xem tổng doanh thu theo từng loại vé. --> pie chart
-	- Trong 1 khoảng thời gian, xem tổng doanh thu theo từng đơn vị thời gian (ngày, tháng, năm) -> line chart
-
-2. Chart xem thống kê về số lượng vé:
-	- Trong 1 khoảng thời gian, xem tổng số lượng vé của từng loại bán ra là bao nhiêu. --> pie chart
-	- Trong 1 khoảng thời gian, xem tổng số lượng vé của từng loại bán ra theo từng đơn vị thời gian (ngày, tháng, năm). --> line chart
-*/
-
 /**
  * @todo Implement data display properly according to from and to
  */
@@ -132,92 +122,10 @@ export abstract class ReportComponent implements OnInit {
 		});
 	}
 
-	private processAndSetCalendar(): void {
-		// const minYear: number = 2000;
-		// let maxDate: Date = new Date();
-		// maxDate.setHours(0, 0, 0, 0);
-		// let minDate: Date = new Date(`${minYear}-01-01T00:00:00`);
-
-		// if (!this._currentDateFrom && !this._currentDateTo) {
-		// 	this.dateFrom.minYearValue = this.dateTo.minYearValue = minYear;
-
-		// 	this._currentDateTo = maxDate;
-		// 	this._currentDateFrom = new Date(this._currentDateTo.getTime() - TIME_PERIODS_IN_MILISECS.WEEK);
-		// }
-
-		// const currentMonthFrom: number = this._currentDateFrom.getMonth() + 1;
-		// const currentMonthTo: number = this._currentDateTo.getMonth() + 1;
-		// const currentYearFrom: number = this._currentDateFrom.getFullYear();
-		// const currentYearTo: number = this._currentDateTo.getFullYear();
-		// const nextArrow = document.getElementsByClassName('ui-datepicker-next');
-		// const prevArrow = document.getElementsByClassName('ui-datepicker-prev');
-
-		// switch (this.selectedTimeUnit) {
-		// 	case TIME_UNITS.DAY:
-		// 		this._currentDateFrom.setHours(0, 0, 0, 0);
-		// 		this._currentDateTo.setHours(0, 0, 0, 0);
-		// 		if (this._currentDateFrom.getTime() >= this._currentDateTo.getTime()) {
-		// 			this._currentDateTo.setTime(this._currentDateFrom.getTime() + TIME_PERIODS_IN_MILISECS.WEEK);
-		// 		}
-
-		// 		if (this._currentChartType != CHART_TYPES.PIE_CHART) {
-		// 			if ((maxDate.getTime() - this._currentDateFrom.getTime()) < TIME_PERIODS_IN_MILISECS.MONTH_THIRTY_ONE) {
-		// 				this._currentDateTo = maxDate;
-		// 				this._dateToContext.maxDate = maxDate;
-		// 			}
-		// 			this._currentDateTo = new Date(this._currentDateFrom.getTime() + TIME_PERIODS_IN_MILISECS.MONTH_THIRTY_ONE);
-		// 			this._dateToContext.maxDate = this._currentDateTo;
-		// 		}
-		// 		else this._dateToContext.maxDate = maxDate;
-		// 		// if (currentMonthFrom == 11 && currentYearFrom == this.dateFrom.maxYearValue) {
-		// 		// 	nextArrow[0]
-		// 		// }
-		// 		// else if (currentMonthFrom == 0 && currentYearFrom == this.dateFrom.minYearValue) {
-		// 		// 	this._renderer.setStyle(prevArrow[0], 'visibility', 'hidden');
-		// 		// }
-		// 		// else if (currentMonthTo == 11 && currentYearTo == this.dateTo.maxYearValue) {
-		// 		// 	this._renderer.setStyle(nextArrow[0], 'visibility', 'hidden');
-		// 		// }
-		// 		// else if (currentMonthTo == 0 && currentYearTo == this.dateTo.minYearValue) {
-		// 		// 	this._renderer.setStyle(prevArrow[0], 'visibility', 'hidden');
-		// 		// }
-		// 		// else {
-		// 		// 	this._renderer.setStyle(nextArrow[0], 'visibility', 'visible');
-		// 		// 	this._renderer.setStyle(prevArrow[0], 'visibility', 'visible');
-		// 		// }
-		// 		break;
-		// 	case TIME_UNITS.MONTH:
-		// 		this._currentDateFrom.setDate(1);
-		// 		this._currentDateTo.setDate(1);
-		// 		if ((currentMonthFrom >= currentMonthTo) && (currentYearFrom >= currentYearTo)) {
-		// 			this._currentDateTo.setMonth(currentMonthTo + 1);
-		// 			this._currentDateTo.setFullYear(currentYearFrom);
-		// 		}
-		// 		break;
-		// 	case TIME_UNITS.YEAR:
-		// 		this._currentDateFrom.setDate(1);
-		// 		this._currentDateTo.setDate(1);
-		// 		this._currentDateFrom.setMonth(1);
-		// 		this._currentDateTo.setMonth(1);
-		// 		if (currentYearFrom >= currentYearTo) {
-		// 			this._currentDateTo.setFullYear(currentYearFrom + 1);
-		// 		}
-		// 		break;
-		// }
-		// this._dateFromContext.maxDate = maxDate;
-		// this._dateFromContext.minDate = minDate;
-		// this._dateFromContext.value = this._currentDateFrom;
-		// this._dateToContext.value = this._currentDateTo;
-		// this._dateToContext.minDate = this._currentDateFrom;
-		// this._dateFromContext.updateInputfield();
-		// this._dateToContext.updateInputfield();
-	}
-
 	public onTimeUnitChange(event: any) {
 		this.selectedTimeUnit = event.value;
 		this.changeCalendarView(event.value);
 		this.changeChartLabels(event.value);
-		this.processAndSetCalendar();
 		this.refreshChart();
 	}
 
@@ -291,7 +199,6 @@ export abstract class ReportComponent implements OnInit {
 	public onDateFromSelect(event: any) {
 		this._currentDateFrom = event;
 		if (this.validateCalendars()) {
-			this.processAndSetCalendar();
 			this.refreshChart();
 		}
 	}
@@ -299,7 +206,6 @@ export abstract class ReportComponent implements OnInit {
 	public onDateToSelect(event: any) {
 		this._currentDateTo = event;
 		if (this.validateCalendars()) {
-			this.processAndSetCalendar();
 			this.refreshChart();
 		}
 	}

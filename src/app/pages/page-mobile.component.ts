@@ -5,12 +5,12 @@ import { MENU_ITEMS } from './menu-settings';
 @Component({
 	selector: 'ggm-page',
 	template: `
-		<ggm-unresponsive-desktop-layout>
+		<ggm-mobile-layout>
 			<ggm-stack-menu class="main-menu" [items]="menu"></ggm-stack-menu>
 			<router-outlet></router-outlet>
-		</ggm-unresponsive-desktop-layout>
+		</ggm-mobile-layout>
 	`,
 })
-export class DesktopPageComponent {
+export class MobilePageComponent {
 	public menu = MENU_ITEMS;
 }

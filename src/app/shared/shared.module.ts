@@ -29,6 +29,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ChartModule } from 'primeng/chart';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { SliderModule } from 'primeng/slider';
 import { GgmCalendarComponent } from '../pages/report/view-models/ggm-calendar';
 
 const UI_MODULES = [
@@ -60,6 +61,7 @@ const UI_MODULES = [
 	TooltipModule,
 	ChartModule,
 	SelectButtonModule,
+	SliderModule,
 ];
 
 const PIPES = [

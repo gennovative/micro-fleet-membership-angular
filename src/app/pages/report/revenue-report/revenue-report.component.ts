@@ -28,7 +28,7 @@ export class RevenueReportComponent extends ReportComponent implements OnInit {
 			CHART_TYPES_SELECT_BUTTON_DATA.PIE_CHART,
 			CHART_TYPES_SELECT_BUTTON_DATA.LINE_CHART,
 		];
-		this.unitName = 'VND';
+		this.unitName = 'million VND';
 	}
 
 	public async fetchPieChartData(): Promise<DataChart> {
@@ -96,7 +96,7 @@ export class RevenueReportComponent extends ReportComponent implements OnInit {
 					dataChart.labels.push(GGMUtil.generateLabelWithTimeUnit(dateIndex, this.selectedTimeUnit));
 					dataChart.datasets.forEach(lineChart => {
 						const ticketName = (<DataLineChart>lineChart).label;
-						const valueRes = res[ticketName][dateIndex.toDateString()];
+						const valueRes = res[ticketName][dateIndex.toDateString()] / 1000000; // division with 1 million to convert money to million unit
 						if (!valueRes)
 							lineChart.data.push(0); // on time unit don't have any ticket saled.
 						else

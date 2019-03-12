@@ -12,12 +12,15 @@ import { GGMUtil } from '@@core/utils/ggm-util';
  */
 @Component({
 	selector: 'ggm-ticket-report',
-	templateUrl: '../report//report.component.html',
-	styleUrls: ['../report/report.component.scss'],
+	// templateUrl: '../report//report.component.html',
+	templateUrl: 'ticket-report.component.html',
+	// styleUrls: ['../report/report.component.scss'],
+	styleUrls: ['ticket-report.component.scss'],
 	providers: [TicketReportService],
 })
 export class TicketReportComponent extends ReportComponent implements OnInit {
 
+	public rangeValues: number[] = [0, 100];
 	constructor(
 		protected _messageService: MessageService,
 		protected _reportService: TicketReportService,

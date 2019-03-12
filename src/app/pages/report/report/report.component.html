@@ -1,5 +1,5 @@
 <p-toast [style]="{marginTop: '110px'}"></p-toast>
-<p-toolbar styleClass="ggm-ui-toolbar">
+<p-toolbar styleClass="ggm-ui-toolbar sticky">
 	<div class="ui-toolbar-group-left row">
 		<div class="column">
 			<p>From</p>
@@ -15,7 +15,7 @@
 		</div>
 		<div class="row" [style.visibility]="timeUnitsVisibility">
 			<div class="column">
-				<p>Time units:</p>
+				<p>Zoom to:</p>
 			</div>
 			<div class="column">
 				<p-selectButton [options]="_timeUnits" (onChange)="onTimeUnitChange($event)" [(ngModel)]="selectedTimeUnit"></p-selectButton>

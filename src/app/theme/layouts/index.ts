@@ -9,4 +9,5 @@ export * from './desktop/header/header.component';
 export * from './desktop/footer/footer.component';
 export * from './desktop/sidebar/sidebar.component';
 export * from './desktop/unresponsive.layout';
+export * from './mobile/mobile.layout';
 // export * from './desktop/responsive-nebular.layout';
