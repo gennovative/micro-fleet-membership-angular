@@ -160,6 +160,20 @@
 						"scripts": [
 							"node_modules/pace-js/pace.min.js",
 							"node_modules/chart.js/dist/Chart.js"
+						],
+						"fileReplacements": [
+							{
+								"replace": "src/app/app-routing.module.ts",
+								"with": "src/app/mobile-routing.module.ts"
+							},
+							{
+								"replace": "src/app/app.module.ts",
+								"with": "src/app/mobile.module.ts"
+							},
+							{
+								"replace": "src/app/theme/theme.module.ts",
+								"with": "src/app/theme/mobile-theme.module.ts"
+							}
 						]
 					},
 					"configurations": {

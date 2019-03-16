@@ -13,10 +13,9 @@ import { CoreModule } from './core/core.module';
 import { ThemeModule } from './theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { PageModule } from './pages/page.module';
+import { PageModule } from './pages/desktop/page.module';
 import { AuthInterceptor } from '@@shared/helpers/auth.interceptor';
 import { ErrorsInterceptor } from '@@shared/helpers/errors.interceptor';
-
 
 @NgModule({
 	declarations: [AppComponent],
@@ -26,8 +25,8 @@ import { ErrorsInterceptor } from '@@shared/helpers/errors.interceptor';
 		HttpClientModule,
 		AppRoutingModule,
 
-		ThemeModule.forRoot(),
 		CoreModule.forRoot(),
+		ThemeModule.forRoot(),
 		PageModule,
 	],
 	bootstrap: [AppComponent],

@@ -30,7 +30,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ChartModule } from 'primeng/chart';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { SliderModule } from 'primeng/slider';
-import { GgmCalendarComponent } from '../pages/report/view-models/ggm-calendar';
+import { GgmCalendarComponent } from './components/calendar/ggm-calendar';
 
 const UI_MODULES = [
 	ButtonModule,

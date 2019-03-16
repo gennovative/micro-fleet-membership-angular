@@ -2,10 +2,10 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UserService } from './users.service';
-import { EventService } from '../../pages/event/events.service';
+import { EventService } from '../../pages/desktop/event/events.service';
 import { MessageService } from 'primeng/api';
-import { AccountService } from '../../pages/account/account.service';
-import { TicketService } from '../../pages/ticket/ticket.service';
+import { AccountService } from '../../pages/desktop/account/account.service';
+import { TicketService } from '../../pages/desktop/ticket/ticket.service';
 import { AuthService } from '../../pages/auth/auth.service';
 import { StorageService } from '@@core/services/storage.service';
 import { SessionService } from '@@core/services/session.service';
@@ -14,9 +14,9 @@ import { AuthGuard } from '@@shared/guards/auth.guard';
 import { AuthInterceptor } from '@@shared/helpers/auth.interceptor';
 import { LoggedOutGuard } from '@@shared/guards/logged-out-guard';
 import { AuthRedirectGuard } from '@@shared/guards/auth-redirect.guard';
-import { AccountDetailsResolver, RoleDetailsResolver, ProfileDetailsResolver } from '../../pages/account/helpers/details.resolver';
-import { TicketComboService } from '../../pages/ticket-combo/ticket-combo.service';
-import { RoleService } from '../../pages/account/role.service';
+import { AccountDetailsResolver, RoleDetailsResolver, ProfileDetailsResolver } from '../../pages/desktop/account/helpers/details.resolver';
+import { TicketComboService } from '../../pages/desktop/ticket-combo/ticket-combo.service';
+import { RoleService } from '../../pages/desktop/account/role.service';
 import { ErrorsInterceptor } from '@@shared/helpers/errors.interceptor';
 import { ConfirmationService } from 'primeng/api';
 

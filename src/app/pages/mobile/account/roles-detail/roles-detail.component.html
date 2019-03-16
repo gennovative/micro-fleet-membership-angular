@@ -1,0 +1,31 @@
+<p-toast [style]="{marginTop: '50px'}"></p-toast>
+<p-toolbar styleClass="ggm-ui-toolbar sticky">
+	<button pButton label="Back" icon="ui-icon-arrow-back" [routerLink]="['/accounts/roles/list']" routerLinkActive="router-link-active" class="ggm-button-back" class="ui-button-raised ui-button-secondary"></button>
+	<button pButton label="Save" icon="ui-icon-save" (click)="onSave()" class="button-ui-raised"></button>
+</p-toolbar>
+<p-panel styleClass="ui-panel-shadow">
+	<form [formGroup]="userform" (ngSubmit)="onSave()" *ngIf="formReady">
+		<div class="ui-g ui-fluid" >
+			<div class="ui-g-12">
+				<div class="ggm-ui-g-1 ui-g-1">
+					<label for="name">Name</label>
+				</div>
+				<div class="ggm-ui-g-3 ui-g-3">
+					<input #firstfield pInputText formControlName="name"/>
+				</div>
+				<div class="ggm-ui-g-6 ui-g-6">
+					<p-message severity="error" text="Empty name"
+					*ngIf="userform.errors?.emptyName">
+					</p-message>
+					<p-message severity="error" text="Name too short"
+					*ngIf="userform.errors?.shortName">
+					</p-message>
+					<p-message severity="error" text="Name too long"
+					*ngIf="userform.errors?.longName">
+					</p-message>
+				</div>
+			</div>
+			<button type="submit" style="display: none"></button>
+		</div>
+	</form>
+</p-panel>

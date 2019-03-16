@@ -1,0 +1,27 @@
+<p-panel header="Create Event" styleClass="ui-panel-shadow">
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+			quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div>
+	<form [formGroup]="userform" (ngSubmit)="onSubmit(userform.value)">
+		<div class="ui-g ui-fluid" *ngFor="let col of cols">
+			<div class="ui-g-12" *ngIf="col.field != idField">
+				<div class="ui-g-4">
+					<label for="col.field">{{col.header}} *:</label>
+				</div>
+				<div class="ui-g-8">
+					<input pInputText formControlName={{col.field}} />
+				</div>
+				<div class="ui-g-8" *ngIf="col.field != idField">
+					<p-message severity="error" text="{{col.header}} is required"
+					*ngIf="!userform.controls[col.field].valid&&userform.controls[col.field].dirty">
+					</p-message>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div>
+				<button type="button" pButton icon="" (click)="location.back()" label="Cancel"></button>
+				<button type="submit" pButton icon="" (click)="addElement()" label="Add" [disabled]="!userform.valid"></button>
+			</div>
+		</footer>
+	</form>
+</p-panel>

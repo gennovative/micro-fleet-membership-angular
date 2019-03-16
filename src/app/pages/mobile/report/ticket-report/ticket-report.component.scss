@@ -1,0 +1,73 @@
+:host {
+	::ng-deep {
+		// .row {
+		// 	display: flex;
+		// }
+
+		.p-grid {
+			margin: 0;
+			padding: 0;
+		}
+		
+		p.label {
+			// padding-left: 0.429em;
+			// padding-right: 0.429em;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.align-center {
+			text-align: center;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.ui-selectbutton {
+			display: inline-flex;
+		}
+
+		.ggm-ui-toolbar {
+			padding: 0 !important;
+		}
+
+		.ggm-report-calendar {
+			input {
+				color: white;
+			}
+		}
+
+		p-chart canvas {
+			width: 100% !important;
+		}
+
+		.ui-card-content .ui-detail {
+			text-align: left;
+		}
+		.ui-card-content .ui-detail ul {
+			padding: 0 0 32px;
+			margin: 0;
+			list-style-type: none;
+		}
+		.ui-card-content .ui-detail ul li {
+			padding: 8px 24px;
+			border-top: 1px solid #dbdbdb;
+		}
+		.ui-card-content .ui-detail ul li:last-child {
+			border-bottom: 1px solid #dbdbdb;
+		}
+		.ui-card-content .ui-detail ul li i {
+			font-size: 24px;
+			margin-right: 8px;
+			width: 32px;
+			vertical-align: middle;
+			color: #757575;
+		}
+		.ui-card-content .ui-detail ul li .project-title {
+			font-weight: 700;
+			margin-right: 8px;
+		}
+		.ui-card-content .ui-detail ul li .project-detail {
+			color: #757575;
+		}
+	}
+}

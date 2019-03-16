@@ -1,9 +1,8 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-// For stack-menu.component
 import { RouterModule } from '@angular/router';
 
+// For stack-menu.component
 import { SharedModule } from '../shared/shared.module';
 
 import {
@@ -11,8 +10,7 @@ import {
 	HeaderComponent,
 	SidebarComponent,
 	GgmStackMenuComponent,
-	DesktopUnresponsiveLayoutComponent,
-	MobileLayoutComponent,
+	MainLayoutComponent,
 	GgmLayoutComponent,
 	GgmLayoutSidebarComponent,
 	GgmLayoutContentComponent,
@@ -20,8 +18,7 @@ import {
 	GgmLayoutFooterComponent,
 
 	GgmSidebarService,
-} from './layouts';
-
+} from './layouts/desktop';
 
 const BASE_MODULES = [ CommonModule, RouterModule ];
 
@@ -31,8 +28,7 @@ const COMPONENTS = [
 	SidebarComponent,
 	GgmStackMenuComponent,
 
-	DesktopUnresponsiveLayoutComponent,
-	MobileLayoutComponent,
+	MainLayoutComponent,
 	GgmLayoutComponent,
 	GgmLayoutSidebarComponent,
 	GgmLayoutContentComponent,

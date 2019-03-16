@@ -1,0 +1,148 @@
+@import '~theme/layouts/components/vars';
+@import '~theme/layouts/desktop/vars';
+
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 1em;
+	font-family: inherit;
+	box-sizing: border-box;
+}
+
+html {
+	height: 100%;
+	font-family: $base-font-family;
+	font-size: $base-font-size;
+}
+
+body {
+	font-size: $base-font-size * 1.6;
+	font-size: 1.4rem;
+	background-color: hsl(218, 29%, 95%);
+	min-height: 100%;
+	min-width: 1000px;
+	overflow-x: hidden;
+}
+
+/* SIDEBAR - MAIN MENU */
+
+.ggm-layout-sidebar:hover {
+	overflow: hidden;
+}
+
+.ui-scrollpanel {
+	width: 240px;
+	height: calc(100vh - #{$layout-header-height});
+}
+
+.ggm-stack-menu {
+	width: $layout-sidebar-width;
+}
+
+.ggm-layout {
+	display: flex;
+	min-height: 100%;
+	position: relative;
+
+	&[subfooter] {
+		.ggm-layout-sidebar {
+			height: calc(100% - #{$layout-header-height});
+		}
+	}
+
+	&[subheader] {
+		.ggm-layout-header[sticky] {
+			margin-left: $layout-sidebar-width;
+		}
+
+		.ggm-layout-sidebar {
+			height: calc(100% - #{$layout-footer-height});
+			top: 0;
+		}
+	}
+
+	&[subfooter][subheader] {
+		.ggm-layout-sidebar {
+			height: 100vh;
+		}
+	}
+
+	
+	&.ggm-sidebar--offcanvas {
+		.ggm-layout-sidebar {
+			transform: translateX($layout-sidebar-offcanvas-width - $layout-sidebar-width);
+
+			&[sticky] {
+				+ .ggm-layout-box {
+					margin-left: $layout-sidebar-offcanvas-width;
+				}
+			}
+		}
+	}
+}
+
+.ggm-layout[subheader].ggm-sidebar--offcanvas .ggm-layout-header[sticky],
+.ggm-layout[subfooter].ggm-sidebar--offcanvas .ggm-layout-footer[sticky] {
+	margin-left: $layout-sidebar-offcanvas-width;
+}
+
+/* HEADER */
+
+.ggm-layout-header {
+	align-items: stretch;
+
+	p-toolbar {
+		flex: 1 1 auto;
+
+		.ui-toolbar {
+			height: $layout-header-height;
+			background-color: transparent;
+			border: none;
+		}
+	}
+
+	.ui-toolbar-group-left,
+	.ui-toolbar-group-right {
+		height: 100%;
+		line-height: $layout-header-height;
+		margin-left: 15px;
+	}
+
+	.ui-toolbar-group-left .header-item {
+		margin-right: 20px;
+	}
+
+	.ui-toolbar-group-right .header-item {
+		margin-left: 20px;
+	}
+
+	.header-item {
+		height: 30px;
+		line-height: 30px;
+	}
+
+	.header-action {
+		.ui-button-icon-left {
+			position: static;
+			margin: 0;
+		}
+	}
+}
+
+
+/* FOOTER */
+
+.ggm-layout-footer {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 10px 20px 0;
+}
+
+
+/* CONTENT */
+.ggm-layout > .ggm-layout-box {
+	min-height: calc(100vh - #{$layout-header-height});
+}
+

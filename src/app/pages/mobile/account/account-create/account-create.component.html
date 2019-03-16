@@ -1,0 +1,107 @@
+<p-toast [style]="{marginTop: '50px'}"></p-toast>
+<p-toolbar styleClass="ggm-ui-toolbar sticky">
+	<button pButton type="button" label="Back" icon="ui-icon-arrow-back" [routerLink]="['/accounts/list']" routerLinkActive="router-link-active" class="ui-button-raised ui-button-secondary"></button>
+	<button pButton label="Create" icon="ui-icon-save" (click)="createAccount()" [style]="{'margin-left': '15px'}" class="ui-button-raised"></button>
+	<p-checkbox [(ngModel)]="shouldCreateAnother" binary="true" label="Create another" [style]="{'margin-left': '15px'}"></p-checkbox>
+</p-toolbar>
+<p-panel header="Create Account" styleClass="ui-panel-shadow">
+	<div class="ui-g ui-fluid">
+		<div class="ui-g-7">
+			<p-messages [(value)]="msgs"></p-messages>
+		</div>
+	</div>
+	<form [formGroup]="userform" (ngSubmit)="createAccount()">
+		<div class="ui-g ui-fluid">
+			<div class="ui-g-12">
+				<div class="ggm-ui-g-1 ui-g-1">
+					<label for="username">Username<span style="color: red;">*</span></label>
+				</div>
+				<div class="ggm-ui-g-3 ui-g-3">
+					<input pInputText formControlName="username" #firstfield/>
+				</div>
+				<div class="ggm-ui-g-6 ui-g-6">
+					<p-message severity="error" text="Empty username"
+					*ngIf="userform.errors?.emptyUsername">
+					</p-message>
+					<p-message severity="error" text="Username too short"
+					*ngIf="userform.errors?.shortUsername">
+					</p-message>
+					<p-message severity="error" text="Username too long"
+					*ngIf="userform.errors?.longUsername">
+					</p-message>
+				</div>
+			</div>
+			<div class="ui-g-12">
+				<div class="ggm-ui-g-1 ui-g-1">
+					<label for="fullname">Full name<span style="color: red;">*</span></label>
+				</div>
+				<div class="ggm-ui-g-3 ui-g-3">
+					<input pInputText formControlName="fullname"/>
+				</div>
+				<div class="ggm-ui-g-6 ui-g-6">
+						<p-message severity="error" text="Empty full name"
+						*ngIf="userform.errors?.emptyFullname">
+						</p-message>
+						<p-message severity="error" text="Full name too short"
+						*ngIf="userform.errors?.shortFullname">
+						</p-message>
+						<p-message severity="error" text="Full name too long"
+						*ngIf="userform.errors?.longFullname">
+						</p-message>
+				</div>
+			</div>
+			<div class="ui-g-12">
+				<div class="ggm-ui-g-1 ui-g-1">
+					<label for="fullname">Password<span style="color: red;">*</span></label>
+				</div>
+				<div class="ggm-ui-g-3 ui-g-3">
+					<input type="password" pPassword formControlName="password" [feedback]="false" />
+				</div>
+				<div class="ggm-ui-g-6 ui-g-6">
+					<p-message severity="error" text="Empty password"
+					*ngIf="userform.errors?.emptyPassword">
+					</p-message>
+					<p-message severity="error" text="Password too short"
+					*ngIf="userform.errors?.shortPassword">
+					</p-message>
+					<p-message severity="error" text="Password too long"
+					*ngIf="userform.errors?.longPassword">
+					</p-message>
+				</div>
+			</div>
+			<div class="ui-g-12">
+				<div class="ggm-ui-g-1 ui-g-1">
+					<label for="fullname">Re-enter password<span style="color: red;">*</span></label>
+				</div>
+				<div class="ggm-ui-g-3 ui-g-3">
+					<input type="password" pPassword formControlName="confirmPassword" [feedback]="false"/>
+				</div>
+				<div class="ggm-ui-g-6 ui-g-6">
+					<p-message severity="error" text="Empty password confirmation"
+					*ngIf="userform.errors?.emptyConfirmPass">
+					</p-message>
+					<p-message severity="error" text="Passwords do not match"
+					*ngIf="userform.errors?.invalidConfirmPass">
+					</p-message>
+				</div>
+			</div>
+			<div class="ui-g-12">
+				<div class="ggm-ui-g-1 ui-g-1">
+					<label for="role">Role<span style="color: red;">*</span></label>
+				</div>
+				<div class="ggm-ui-g-3 ui-g-3">
+					<p-dropdown formControlName="role" filter="true" filterBy="label" [options]="roleItems" placeholder="Select a role"></p-dropdown>
+				</div>
+				<div class="ggm-ui-g-6 ui-g-6">
+					<p-message severity="error" text="Role is required"
+					*ngIf="!userform.controls['role'].valid && userform.controls['role'].dirty">
+					</p-message>
+				</div>
+			</div>
+			<div class="ggm-ui-g-6 ui-g-6">
+				<label for="role"><span style="color: red;">*</span> <strong>Required info</strong></label>
+			</div>
+			<button type="submit" style="display: none"></button>
+		</div>
+	</form>
+</p-panel>

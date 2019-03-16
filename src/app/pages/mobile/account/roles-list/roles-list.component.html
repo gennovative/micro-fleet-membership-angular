@@ -1,0 +1,58 @@
+<p-panel [showHeader]="false">
+	<p-toolbar>
+		<div class="ui-toolbar-group-left">
+			<button pButton label="Add" icon="ui-icon-add" [routerLink]="['../create']" class="ui-button-raised"></button>
+			<button *ngIf="showDeleteBtn" pButton label="Delete" icon="ui-icon-delete-forever" (click)="op.show($event)" class="ui-button-raised ui-button-danger"></button>
+		</div>
+
+		<div class="ui-toolbar-group-right">
+			<input type="search" pInputText size="40" placeholder="Keyword" height="30"
+				(input)="tableContent.filterGlobal($event.target.value, 'contains')">
+			<p-button icon="pi pi-search"></p-button>
+		</div>
+	</p-toolbar>
+	<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" width="425"></p-confirmDialog>
+	<p-table
+		[resizableColumns]="true"
+		[columns]="cols"
+		[value]="dataTable"
+		[paginator]="true"
+		[rows]="10"
+		[(selection)]="selectedItems"
+		(onLazyLoad)="loadDataLazily($event)" [lazy]="true"
+		selectionMode="multiple"
+		[loading]="loading" loadingIcon="fas fa-spinner"
+		[totalRecords]="totalRecords"
+		[rowsPerPageOptions]="[10,20,30,40]"
+		#tableContent>
+
+		<ng-template pTemplate="header" let-columns>
+			<tr>
+				<th *ngFor="let col of columns" [ngStyle]="{'display': col.display}" pResizableColumn>
+					{{col.header | uppercase}}
+				</th>
+				<th pResizableColumn>
+					OPERATIONS
+				</th>
+			</tr>
+			
+		</ng-template>
+		<ng-template pTemplate="body" let-rowData let-columns="columns">
+			<tr>
+				<td *ngFor="let col of columns" [ngStyle]="{'display': col.display}" class="ui-resizable-column">
+					<a *ngIf="col.hasLink" routerLink="../details/{{rowData[idField]}}" [style]="{'color': 'blue'}">{{rowData[col.field]}}</a>
+					<p *ngIf="!col.hasLink">{{rowData[col.field]}}</p>
+				</td>
+				<td style="text-align: center">
+					<span>
+						<p-button *ngIf="isDeleteEnabled(rowData[membersCountField])" styleClass="ggm-button-hover" icon="ui-icon-delete-forever" tooltipPosition="bottom" (click)="confirmDeleteSingle(rowData[idField])" pTooltip="Delete"></p-button>
+						<p-button *ngIf="!isDeleteEnabled(rowData[membersCountField])" [disabled]="true" styleClass="ggm-button-hover" icon="ui-icon-delete-forever" tooltipPosition="bottom" pTooltip="Cannot delete a role that has active membbers"></p-button>
+					</span>
+					<span>
+						<p-button styleClass="ggm-button-hover" icon="ui-icon-assignment-return" pTooltip="Migrate" tooltipPosition="bottom"></p-button>
+					</span>
+				</td>
+			</tr>
+		</ng-template>
+	</p-table>
+</p-panel>

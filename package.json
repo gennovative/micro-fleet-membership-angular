@@ -23,7 +23,7 @@
     "release:changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s",
     "pree2e": "lint:e2e && webdriver-manager update --standalone false --gecko false",
     "test:coverage": "rimraf coverage && npm run test -- --code-coverage",
-    "postinstall": "rimraf node_modules/**/node_modules/typescript"
+	"postinstall": "rimraf node_modules/**/node_modules/typescript"
   },
   "dependencies": {
     "@angular/animations": "~6.1",

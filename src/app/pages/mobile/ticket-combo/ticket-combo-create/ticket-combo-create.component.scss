@@ -1,0 +1,76 @@
+:host {
+	::ng-deep {
+		.ggm-input-width {
+			width: 175px;
+		}
+
+		.row {
+			display: flex;
+		}
+		
+		.column {
+			flex: content;
+			vertical-align: middle;
+
+			p {
+				padding: 0.429em;
+			}
+		}
+
+		.ui-g.ui-fluid {
+			width: auto;
+		}
+		.ui-g-3.ggm-calendar {
+			padding: 0;
+		}
+		.ui-g-1 {
+			width: 6em;
+		}
+
+		.ui-picklist .ui-picklist-list {
+			width: 15em;
+		}
+
+		#ticketPL {
+			button {
+				&:nth-child(2),
+				&:nth-child(4) {
+					display: none;
+				}
+			}
+		}
+
+		.ui-picklist-source-controls, .ui-picklist-target-controls {
+			display: none;
+		}
+
+		.ui-picklist-item {
+			&:hover {
+				.ggm-buttonSpinner {
+					visibility: visible;
+				}
+				// .ggm-inputSpinner {
+				// 	visibility: visible;
+				// }
+			}
+			&:nth-child(odd) {
+				background-color: #f4f4f4;
+			}
+		}
+		.ggm-rowItemTarget {
+			height: 1.2em;
+		}
+		.ggm-itemTargetName {
+			align-self: center;
+			width: 15em;
+		}
+		.ggm-inputSpinner {
+			align-self: center;
+			// visibility: hidden;
+		}
+		.ggm-buttonSpinner {
+			font-size: xx-small;
+			visibility: hidden;
+		}
+	}
+}

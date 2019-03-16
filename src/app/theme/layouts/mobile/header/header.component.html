@@ -8,7 +8,7 @@
 		<span id="headerLogo" class="header-item">Event Checkin</span>
 	</div>
 
-	<div class="ui-toolbar-group-right">
+	<!-- <div class="ui-toolbar-group-right">
 		<button pButton type="button" icon="far fa-lg fa-envelope"
 			class="header-action header-item"
 			(click)="toggleSidebar()"></button>
@@ -19,5 +19,158 @@
 		<button pButton type="button" icon="fas fa-lg fa-cog"
 			class="header-action header-item"
 			(click)="menu.toggle($event)"></button>
+	</div> -->
+
+	<a class="topbar-menu-btn" href="#">
+		<i class="material-icons"></i>
+	</a>
+	<div class="layout-topbar-menu-wrapper">
+		<ul class="topbar-menu fadeInDown">
+			<li class="profile-item">
+				<a href="#">
+					<span class="profile-image-wrapper">
+						<img src="assets/layout/images/avatar.png">
+					</span>
+					<span class="topbar-item-name profile-name">Wendy Lorina</span>
+				</a>
+				<ul class="fadeInDown">
+					<li role="menuitem">
+						<a href="#">
+							<i class="material-icons">account_circle</i>
+							<span>Profile</span>
+						</a>
+					</li>
+					<li role="menuitem">
+						<a href="#">
+							<i class="material-icons">verified_user</i>
+							<span>Privacy</span>
+						</a>
+					</li>
+					<li role="menuitem">
+						<a href="#">
+							<i class="material-icons">settings_application</i>
+							<span>Settings</span>
+						</a>
+					</li>
+					<li role="menuitem">
+						<a href="#">
+							<i class="material-icons">exit_to_app</i>
+							<span>Logout</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">
+					<i class="topbar-icon material-icons">settings</i>
+					<span class="topbar-item-name">Settings</span>
+				</a>
+				<ul class="fadeInDown">
+					<li role="menuitem">
+						<a href="#">
+							<i class="material-icons">palette</i>
+							<span>Change Theme</span>
+						</a>
+					</li>
+					<li role="menuitem">
+						<a href="#">
+							<i class="material-icons">star</i>
+							<span>Favorites</span>
+						</a>
+					</li>
+					<li role="menuitem">
+						<a href="#">
+							<i class="material-icons">lock</i>
+							<span>Lock Screen</span>
+						</a>
+					</li>
+					<li role="menuitem">
+						<a href="#">
+							<i class="material-icons">wallpaper</i>
+							<span>Wallpaper</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">
+					<i class="topbar-icon material-icons animated swing"></i>
+					<span class="topbar-badge animated rubberBand">5</span>
+					<span class="topbar-item-name">Messages</span>
+				</a>
+				<ul class="fadeInDown">
+					<li role="menuitem">
+						<a class="topbar-message" href="#">
+							<img src="assets/layout/images/avatar1.png" width="35">
+							<span>Give me a call</span>
+						</a>
+					</li>
+					<li role="menuitem">
+						<a class="topbar-message" href="#">
+							<img src="assets/layout/images/avatar2.png" width="35">
+							<span>Sales reports attached</span>
+						</a>
+					</li>
+					<li role="menuitem">
+						<a class="topbar-message" href="#">
+							<img src="assets/layout/images/avatar3.png" width="35">
+							<span>About your invoice</span>
+						</a>
+					</li>
+					<li role="menuitem">
+						<a class="topbar-message" href="#">
+							<img src="assets/layout/images/avatar2.png" width="35">
+							<span>Meeting today at 10pm</span>
+						</a>
+					</li>
+					<li role="menuitem">
+						<a class="topbar-message" href="#">
+							<img src="assets/layout/images/avatar4.png" width="35">
+							<span>Out of office</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">
+					<i class="topbar-icon material-icons">notifications</i>
+					<span class="topbar-badge animated rubberBand">4</span>
+					<span class="topbar-item-name">Notifications</span>
+				</a>
+				<ul class="fadeInDown">
+					<li role="menuitem">
+						<a href="#">
+							<i class="material-icons">bug_report</i>
+							<span>Pending tasks</span>
+						</a>
+					</li>
+					<li role="menuitem">
+						<a href="#">
+							<i class="material-icons">event</i>
+							<span>Meeting today at 3pm</span>
+						</a>
+					</li>
+					<li role="menuitem">
+						<a href="#">
+							<i class="material-icons">cloud_download</i>
+							<span>Download documents</span>
+						</a>
+					</li>
+					<li role="menuitem">
+						<a href="#">
+							<i class="material-icons">flight</i>
+							<span>Book flight</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="search-item">
+				<span class="md-inputfield">
+					<input pinputtext="" type="text" class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+					<label>Search</label>
+					<i class="topbar-icon material-icons">search</i>
+				</span>
+			</li>
+		</ul>
 	</div>
 </p-toolbar>

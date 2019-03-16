@@ -6,7 +6,7 @@ import { AuthRedirectGuard } from '@@shared/guards/auth-redirect.guard';
 const routes: Routes = [
 	{
 		path: '',
-		loadChildren: './pages/page.module#PageModule',
+		loadChildren: `./pages/desktop/page.module#PageModule`,
 		canActivateChild: [AuthRedirectGuard],
 	},
 	{
