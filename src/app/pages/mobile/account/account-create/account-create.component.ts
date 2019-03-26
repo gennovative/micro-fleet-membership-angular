@@ -2,10 +2,10 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { SelectItem, MessageService, Message } from 'primeng/api';
 import { Router } from '@angular/router';
-import { AccountService } from '../account.service';
 import { Location } from '@angular/common';
 import { ControlsConfig } from '../../../data-types/controls-config';
 import { basicAFormFieldsValidator } from '@@shared/directives/form-validation.directive';
+import { AccountService } from '@@core/services/account.service';
 
 @Component({
 	selector: 'ggm-account-create',

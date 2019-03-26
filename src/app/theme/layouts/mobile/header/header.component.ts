@@ -11,14 +11,17 @@ import { MenuItem } from 'primeng/api';
 export class HeaderComponent implements OnInit {
 
 	public user: any;
-	public userMenu: MenuItem[];
+	public menuItems: MenuItem[];
 	private _sidebar: GgmSidebar;
 
 	constructor(
 		private _sidebarSvc: GgmSidebarService,
 	) {
-		this.userMenu = [
-			{ label: 'Log Out', icon: 'ui-icon-exit-to-app', routerLink: '/auth/logout' },
+		this.menuItems = [
+			{ label: 'Profiles', icon: 'ui-icon-people', routerLink: '' },
+			{ label: 'Messages', icon: 'ui-icon-message', routerLink: '' },
+			{ label: 'Notifications', icon: 'ui-icon-notifications', routerLink: '' },
+			{ label: 'Logout', icon: 'ui-icon-exit-to-app', routerLink: '/auth/logout' },
 		];
 	}
 

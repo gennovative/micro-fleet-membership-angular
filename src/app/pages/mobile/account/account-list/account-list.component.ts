@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountService } from '../account.service';
-import { VMTable } from '../../view-models/vm-table';
+import { VMTable } from '@@core/view-models/vm-table';
 import { ColumnTable } from '../../../data-types/column-table';
 import { ConfirmationService } from 'primeng/api';
+import { AccountService } from '@@core/services/account.service';
 
 @Component({
 	selector: 'ggm-account-list',

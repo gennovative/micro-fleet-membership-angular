@@ -1,11 +1,11 @@
 import { ViewChild, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { UIChart } from 'primeng/chart';
-import { GgmCalendarComponent } from '@@shared/components/calendar/ggm-calendar';
-import { ReportService } from '../report.service';
 import { DataChart, DataChartType, TIME_UNITS, CHART_TYPES, ChartTypeSelectButton } from '../../../data-types/ggm-types';
 import { TitleCasePipe } from '@angular/common';
 import { Calendar } from 'primeng/calendar';
+import { GgmCalendarComponent } from '@@shared/components/calendar/ggm-calendar';
+import { ReportService } from '@@core/services/report.service';
 
 /**
  * @todo Implement data display properly according to from and to

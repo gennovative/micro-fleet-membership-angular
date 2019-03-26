@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { EventService } from '../events.service';
-import { Event } from '../models/event';
+import { Event } from '@@core/models/event';
 import { Location } from '@angular/common';
 import { ColumnTable } from '../../../data-types/column-table';
 import { ControlsConfig } from '../../../data-types/controls-config';
+import { EventService } from '@@core/services/events.service';
 
 @Component({
 	selector: 'ggm-event-create',

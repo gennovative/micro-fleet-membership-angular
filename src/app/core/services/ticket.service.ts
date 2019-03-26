@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { TableDataService } from '../../../core/data/interfaces/service';
-import { Ticket } from './models/ticket';
-import { Observable } from 'rxjs/Observable';
-import { ApiRequestService } from '@@core/services/api-request.service';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
+import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
+
+import { ApiRequestService } from '@@core/services/api-request.service';
+import { environment } from '../../../environments/environment';
+import { TableDataService } from '@@core/data/interfaces/service';
+import { Ticket } from '@@core/models/ticket';
 
 const SERVICE_URL = `${environment.API_URL}tickets`;
 

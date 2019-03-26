@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { take, mergeMap } from 'rxjs/operators';
-import { AccountService } from '../account.service';
 import { of } from 'rxjs/observable/of';
 import { EMPTY } from 'rxjs/internal/observable/empty';
-import { RoleService } from '../role.service';
+
 import { StorageService } from '@@core/services/storage.service';
+import { AccountService } from '../account.service';
+import { RoleService } from '../role.service';
 
 @Injectable()
 export class AccountDetailsResolver {

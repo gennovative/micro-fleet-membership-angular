@@ -1,11 +1,12 @@
-import { environment } from '../../../../../environments/environment';
 import { Injectable } from '@angular/core';
-import { ReportService } from '../report.service';
 import { ApiRequestService } from '@@core/services/api-request.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
-import { TIME_UNITS } from '../../../data-types/ggm-types';
+
+import { environment } from '../../../environments/environment';
+import { ReportService } from './report.service';
+import { TIME_UNITS } from '../../pages/data-types/ggm-types';
 
 const SERVICE_URL = `${environment.API_URL}checkin_entries`;
 

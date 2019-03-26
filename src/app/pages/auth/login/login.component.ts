@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
-import { AuthData } from '../models/authData';
+import { AuthData } from '@@core/models/authData';
 import { StorageService } from '@@core/services/storage.service';
 import { MessageService } from 'primeng/api';
 import { environment } from '../../../../../src/environments/environment';

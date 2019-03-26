@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
 
-import { Role } from './models/role';
-
-import { TableDataService } from '../../../core/data/interfaces/service';
-import { ApiRequestService } from '../../../core/services/api-request.service';
-
-import { IAccount } from './interfaces/IAccount';
+import { TableDataService } from '@@core/data/interfaces/service';
+import { IAccount } from '../interfaces/IAccount';
+import { ApiRequestService } from '@@core/services/api-request.service';
+import { environment } from '../../../environments/environment';
+import { Role } from '@@core/models/role';
 
 @Injectable()
 export class AccountService implements TableDataService<IAccount> {

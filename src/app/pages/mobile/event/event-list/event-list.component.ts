@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { EventService } from '../events.service';
 import { ColumnTable } from '../../../data-types/column-table';
-import { VMTable } from '../../view-models/vm-table';
+import { VMTable } from '@@core/view-models/vm-table';
 import { ConfirmationService } from 'primeng/api';
+import { EventService } from '@@core/services/events.service';
 
 @Component({
 	selector: 'ggm-event-list',

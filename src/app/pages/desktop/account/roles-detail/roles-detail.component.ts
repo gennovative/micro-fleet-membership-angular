@@ -3,8 +3,8 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { MessageService, Message } from 'primeng/api';
 
 import { ActivatedRoute } from '@angular/router';
-import { RoleService } from '../role.service';
 import { basicAFormFieldsValidator } from '@@shared/directives/form-validation.directive';
+import { RoleService } from '@@core/services/role.service';
 
 @Component({
 	selector: 'ggm-roles-detail',

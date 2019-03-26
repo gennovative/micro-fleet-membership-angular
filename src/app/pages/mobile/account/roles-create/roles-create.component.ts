@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Message, MessageService } from 'primeng/api';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RoleService } from '../role.service';
 import { basicAFormFieldsValidator } from '@@shared/directives/form-validation.directive';
+import { RoleService } from '@@core/services/role.service';
 
 @Component({
 	selector: 'ggm-roles-create',

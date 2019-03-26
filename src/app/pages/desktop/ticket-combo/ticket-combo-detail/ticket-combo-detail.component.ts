@@ -3,12 +3,12 @@ import { ControlsConfig } from '../../../data-types/controls-config';
 import { FormControl, Validators, FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
-import { TicketService } from '../../ticket/ticket.service';
 import { Location } from '@angular/common';
-import { TicketComboService } from '../ticket-combo.service';
-import { TicketCombo } from '../models/ticket-combo';
+import { TicketCombo } from '@@core/models/ticket-combo';
 import { PickList } from 'primeng/picklist';
 import { GGMUtil } from '@@core/utils/ggm-util';
+import { TicketService } from '@@core/services/ticket.service';
+import { TicketComboService } from '@@core/services/ticket-combo.service';
 
 @Component({
 	selector: 'ggm-ticket-combo-detail',

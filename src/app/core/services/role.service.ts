@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
 
-import { Role } from './models/role';
-
-import { TableDataService } from '../../../core/data/interfaces/service';
-import { ApiRequestService } from '../../../core/services/api-request.service';
+import { TableDataService } from '@@core/data/interfaces/service';
+import { Role } from '@@core/models/role';
+import { ApiRequestService } from '@@core/services/api-request.service';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class RoleService implements TableDataService<Role> {

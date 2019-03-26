@@ -1,15 +1,15 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ControlsConfig } from '../../../data-types/controls-config';
 import { FormControl, Validators, FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
-import { Ticket } from '../../ticket/models/ticket';
+import { Ticket } from '@@core/models/ticket';
 import { MessageService, Message } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
-import { TicketService } from '../../ticket/ticket.service';
 import { Location } from '@angular/common';
 import { PickList } from 'primeng/picklist';
-import { TicketCombo } from '../models/ticket-combo';
-import { TicketComboService } from '../ticket-combo.service';
+import { TicketCombo } from '@@core/models/ticket-combo';
 import { GGMUtil } from '@@core/utils/ggm-util';
+import { TicketService } from '@@core/services/ticket.service';
+import { TicketComboService } from '@@core/services/ticket-combo.service';
 
 @Component({
 	selector: 'ggm-ticket-create',

@@ -1,17 +1,17 @@
-import { environment } from '../../../../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
-import { ApiRequestService } from '@@core/services/api-request.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
-import { TIME_UNITS } from '../../../data-types/ggm-types';
-import { ReportService } from '../report.service';
+
+import { ApiRequestService } from '@@core/services/api-request.service';
+import { ReportService } from './report.service';
+import { TIME_UNITS } from '../../pages/data-types/ggm-types';
 
 const SERVICE_URL = `${environment.API_URL}ticket-orders`;
 
 @Injectable()
-export class RevenueReportService implements ReportService {
-
+export class TicketReportService implements ReportService {
 	constructor(private apiRequestService: ApiRequestService,
 		private httpClient: HttpClient,
 	) { }
@@ -22,7 +22,7 @@ export class RevenueReportService implements ReportService {
 			.pipe(map((res: any) => res.data as Date));
 	}
 
-	public fetchLineChartRevenue(dateFrom: Date, dateTo: Date, timeUnit: TIME_UNITS): Observable<any> {
+	public fetchLineChartTicket(dateFrom: Date, dateTo: Date, timeUnit: TIME_UNITS): Observable<any> {
 		const headers = this.apiRequestService.appendAccessToken();
 		let body = {
 			model: {
@@ -32,7 +32,7 @@ export class RevenueReportService implements ReportService {
 			},
 		};
 
-		return this.httpClient.post(`${SERVICE_URL}/get-revenue-tickets-line-chart`, body, { headers })
+		return this.httpClient.post(`${SERVICE_URL}/get-quantity-tickets-line-chart`, body, { headers })
 		.pipe(map((res: any) => {
 			const result = {};
 			res.forEach((element: any) => {
@@ -47,7 +47,7 @@ export class RevenueReportService implements ReportService {
 		}));
 	}
 
-	public fetchPieChartRevenue(dateFrom: Date, dateTo: Date): Observable<any> {
+	public fetchPieChartTicket(dateFrom: Date, dateTo: Date): Observable<any> {
 		const headers = this.apiRequestService.appendAccessToken();
 		let body = {
 			model: {
@@ -56,15 +56,15 @@ export class RevenueReportService implements ReportService {
 			},
 		};
 
-		return this.httpClient.post(`${SERVICE_URL}/get-revenue-tickets-pie-chart`, body, { headers })
+		return this.httpClient.post(`${SERVICE_URL}/get-quantity-tickets-pie-chart`, body, { headers })
 			.pipe(
 				map((res: any) => {
 					const result = res.reduce((a: any, el: any) => {
-						a.revenue.push(el.value);
+						a.quantity.push(el.value);
 						a.ticketName.push(el.name);
 						return a;
 					}, {
-						revenue: [],
+						quantity: [],
 						ticketName: [],
 					});
 					return result;

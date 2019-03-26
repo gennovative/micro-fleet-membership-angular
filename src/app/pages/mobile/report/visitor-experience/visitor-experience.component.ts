@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ReportComponent } from '../report/report.component';
 import { MessageService } from 'primeng/api';
 import { DataChart, DataLineChart, CHART_TYPES_SELECT_BUTTON_DATA, TIME_UNITS } from '../../../data-types/ggm-types';
-import { VisitorExperienceService } from './visitor-experience.service';
 import { GGMUtil } from '@@core/utils/ggm-util';
+import { VisitorExperienceService } from '@@core/services/visitor-experience.service';
 
 @Component({
 	selector: 'ggm-visitor-experience',

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { ReportComponent } from '../report/report.component';
 import { DataChart, DataPieChart, CHART_TYPES_SELECT_BUTTON_DATA, DataLineChart, TIME_UNITS } from '../../../data-types/ggm-types';
-import { TicketReportService } from './ticket-report.service';
 import { GGMUtil } from '@@core/utils/ggm-util';
+import { TicketReportService } from '@@core/services/ticket-report.service';
 
 /**
  	Chart xem thống kê về số lượng vé:

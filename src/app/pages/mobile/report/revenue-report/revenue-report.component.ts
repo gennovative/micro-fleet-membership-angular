@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
+
 import { ReportComponent } from '../report/report.component';
 import { DataChart, DataPieChart, DataLineChart, CHART_TYPES_SELECT_BUTTON_DATA, TIME_UNITS } from '../../../data-types/ggm-types';
-import { RevenueReportService } from './revenue-report.service';
 import { GGMUtil } from '@@core/utils/ggm-util';
+import { RevenueReportService } from '@@core/services/revenue-report.service';
 
 /*
 	Chart xem thống kê về tiền:

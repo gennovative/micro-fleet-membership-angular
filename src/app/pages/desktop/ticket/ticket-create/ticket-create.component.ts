@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ControlsConfig } from '../../../data-types/controls-config';
 import { FormControl, Validators, FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
-import { Ticket } from '../models/ticket';
+import { Ticket } from '@@core/models/ticket';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
-import { TicketService } from '../ticket.service';
 import { Location } from '@angular/common';
 import { GGMUtil } from '@@core/utils/ggm-util';
+import { TicketService } from '@@core/services/ticket.service';
 
 @Component({
 	selector: 'ggm-ticket-create',

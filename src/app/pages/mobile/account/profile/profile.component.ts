@@ -1,11 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-
 import { SelectItem, Message, MessageService } from 'primeng/api';
 
-import { AccountService } from '../account.service';
 import { basicAFormFieldsValidator } from '@@shared/directives/form-validation.directive';
+import { AccountService } from '@@core/services/account.service';
 
 @Component({
 	selector: 'ggm-profile',

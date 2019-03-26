@@ -1,11 +1,11 @@
 import { Component, Injectable, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventService } from '../events.service';
 import { MessageService } from 'primeng/api';
 import { Location } from '@angular/common';
 import { FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ColumnTable } from '../../../data-types/column-table';
 import { ControlsConfig } from '../../../data-types/controls-config';
+import { EventService } from '@@core/services/events.service';
 
 @Component({
 	selector: 'ggm-event-detail',

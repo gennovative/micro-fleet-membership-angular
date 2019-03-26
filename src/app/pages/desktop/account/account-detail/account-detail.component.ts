@@ -2,10 +2,10 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angula
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { MessageService, Message } from 'primeng/api';
-import { AccountService } from '../account.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { SelectItem } from 'primeng/api';
 import { basicAFormFieldsValidator } from '@@shared/directives/form-validation.directive';
+import { AccountService } from '@@core/services/account.service';
 
 @Component({
 	selector: 'ggm-account-detail',

@@ -1,0 +1,33 @@
+:host {
+	::ng-deep {
+		.ui-overlaypanel {
+			top: 60px !important;
+
+			p-menu div {
+				transform: none !important;
+				opacity: 1 !important;
+
+				a {
+					padding: 0 1em;
+				}
+			}
+		}
+
+		.topbar-menu-btn {
+			display: inline-block;
+			color: #e1f5fe;
+			padding: 0;
+			position: absolute;
+			top: 50%;
+			right: 24px;
+			transform: translateY(-50%);
+			border-radius: 50%;
+			background: none;
+			box-shadow: none;
+
+			i {
+				font-size: 32px;
+			}
+		}
+	}
+}

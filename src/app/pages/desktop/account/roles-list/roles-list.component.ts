@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { VMTable } from '../../view-models/vm-table';
+import { VMTable } from '@@core/view-models/vm-table';
 import { ColumnTable } from '../../../data-types/column-table';
-import { RoleService } from '../role.service';
 import { ConfirmationService } from 'primeng/api';
+import { RoleService } from '@@core/services/role.service';
 
 @Component({
 	selector: 'ggm-roles-list',

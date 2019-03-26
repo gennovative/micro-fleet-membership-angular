@@ -3,11 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccountListComponent } from './account-list/account-list.component';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
 import { AccountCreateComponent } from './account-create/account-create.component';
-import { AccountDetailsResolver, RoleDetailsResolver, ProfileDetailsResolver } from './helpers/details.resolver';
 import { RolesListComponent } from './roles-list/roles-list.component';
 import { RolesDetailComponent } from './roles-detail/roles-detail.component';
 import { RolesCreateComponent } from './roles-create/roles-create.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AccountDetailsResolver, ProfileDetailsResolver, RoleDetailsResolver } from '@@core/services/helpers/details.resolver';
 
 const routes: Routes = [
 	{

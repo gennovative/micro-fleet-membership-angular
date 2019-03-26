@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 import { environment } from '../../../environments/environment';
-
-import { AuthData } from './models/authData';
-import { Observable } from 'rxjs/Observable';
 import { StorageService } from '@@core/services/storage.service';
+import { AuthData } from '@@core/models/authData';
 
 @Injectable()
 export class AuthService {

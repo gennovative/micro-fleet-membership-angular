@@ -3896,6 +3896,31 @@ right: 0;
 	border-radius: 100%;
 }
 
+.ui-overlaypanel::before,
+.ui-overlaypanel::after {
+	bottom: 100%;
+	right: 1.25em;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+.ui-overlaypanel::before {
+	border-width: 10px;
+	margin-left: -10px;
+	margin-right: -10px;
+	border-color: rgba(200, 200, 200, 0);
+	border-bottom-color: #c8c8c8;
+}
+.ui-overlaypanel::after {
+	border-width: 8px;
+	margin-right: -8px;
+	border-color: rgba(255, 255, 255, 0);
+	border-bottom-color: #ffffff;
+}
+
 .ui-overlaypanel-close-icon {
 	line-height: inherit;
 }

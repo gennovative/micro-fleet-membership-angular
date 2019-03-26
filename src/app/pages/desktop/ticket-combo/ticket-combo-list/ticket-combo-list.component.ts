@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { TicketComboService } from '../ticket-combo.service';
 import { ColumnTable } from '../../../data-types/column-table';
-import { VMTable } from '../../view-models/vm-table';
+import { VMTable } from '@@core/view-models/vm-table';
 import { ConfirmationService } from 'primeng/api';
+import { TicketComboService } from '@@core/services/ticket-combo.service';
 
 @Component({
 	selector: 'ggm-ticket-combo-list',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { TicketService } from '../ticket.service';
 import { ColumnTable } from '../../../data-types/column-table';
-import { VMTable } from '../../view-models/vm-table';
+import { VMTable } from '@@core/view-models/vm-table';
 import { ConfirmationService } from 'primeng/api';
+import { TicketService } from '@@core/services/ticket.service';
 
 @Component({
 	selector: 'ggm-ticket-list',

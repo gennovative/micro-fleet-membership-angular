@@ -3,10 +3,10 @@ import { ControlsConfig } from '../../../data-types/controls-config';
 import { FormControl, Validators, FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
-import { TicketService } from '../../ticket/ticket.service';
-import { Ticket } from '../models/ticket';
+import { Ticket } from '@@core/models/ticket';
 import { Location } from '@angular/common';
 import { GGMUtil } from '@@core/utils/ggm-util';
+import { TicketService } from '@@core/services/ticket.service';
 
 @Component({
 	selector: 'ggm-ticket-detail',

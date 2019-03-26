@@ -1,7 +1,7 @@
-import { Event } from './models/event';
-import { TableDataService } from '../../../core/data/interfaces/service';
+import { Event } from '@@core/models/event';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { TableDataService } from '@@core/data/interfaces/service';
 
 @Injectable()
 export class EventService implements TableDataService<Event> {

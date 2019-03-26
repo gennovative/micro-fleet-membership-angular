@@ -1,4 +1,4 @@
-import { Role } from '../models/role';
+import { Role } from '@@core/models/role';
 
 export interface IAccount {
 	id: number;

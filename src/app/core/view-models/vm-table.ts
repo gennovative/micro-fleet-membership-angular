@@ -1,11 +1,10 @@
 import { Table } from 'primeng/table';
 import { ViewChild } from '@angular/core';
-import { ColumnTable } from '../../data-types/column-table';
-
 import { LazyLoadEvent, ConfirmationService } from 'primeng/api';
-
-import { TableDataService } from '../../../core/data/interfaces/service';
 import { OverlayPanel } from 'primeng/overlaypanel';
+
+import { ColumnTable } from '../../pages/data-types/column-table';
+import { TableDataService } from '@@core/data/interfaces/service';
 
 /**
  * VMTable is a class ViewModel of Table in the MVVM pattern

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { TicketCombo } from './models/ticket-combo';
-import { TableDataService } from '@@core/data/interfaces/service';
-import { ApiRequestService } from '@@core/services/api-request.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { environment } from '../../../../environments/environment';
 import { map } from 'rxjs/operators';
+
+import { ApiRequestService } from '@@core/services/api-request.service';
+import { TableDataService } from '@@core/data/interfaces/service';
+import { TicketCombo } from '@@core/models/ticket-combo';
+import { environment } from '../../../environments/environment';
 
 const SERVICE_URL = `${environment.API_URL}combos`;
 

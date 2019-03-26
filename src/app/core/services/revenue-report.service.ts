@@ -1,11 +1,12 @@
-import { environment } from '../../../../../environments/environment';
 import { Injectable } from '@angular/core';
-import { ApiRequestService } from '@@core/services/api-request.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
-import { TIME_UNITS } from '../../../data-types/ggm-types';
-import { ReportService } from '../report.service';
+
+import { ApiRequestService } from '@@core/services/api-request.service';
+import { environment } from '../../../environments/environment';
+import { ReportService } from './report.service';
+import { TIME_UNITS } from '../../pages/data-types/ggm-types';
 
 const SERVICE_URL = `${environment.API_URL}ticket-orders`;
 
